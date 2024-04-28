@@ -140,3 +140,26 @@ has an equivalent:
     results += 2
 
 This can be used with the other operators as well.
+
+The modulus function is denoted by %, giving the remainder after division.
+
+# If else statements
+The syntax is as follows:
+
+    if condition 1 is true:
+        do action 1
+    elif condition 2 is true:
+        do action 2
+    else:
+        do action 3
+
+Note the indentation used here! The computer will test condition 1 first, and if it is false, it moves onto the next condition to test until all options are spent. We can nest multiple if/else statements within each other, being mindful of indentation.
+
+We can use </>/<=/>= operators to compare numeric variables. We can also test for equality using == or non-equality using != within our conditions.
+
+We can combine multiple conditions in a single statement using and, or and not:
+- And requires each condition is true to be executed. 
+- Or requires only a single condition to be true to be executed
+- Not inverts the condition
+
+

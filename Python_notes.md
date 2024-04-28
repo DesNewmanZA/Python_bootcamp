@@ -30,6 +30,20 @@ You can also index negatively. To get the last element for example, we would use
     print("Hello"[-1])
     o
 
+If we want to get a subset, we can do the following (not inclusive of end point):
+
+    print("Hello"[1:3])
+    el
+
+    print("Hello"[0:2])
+    he
+
+If you want Python to just read text without handling for special cases (for example, reading in a file path), preface the string with r to indicate a raw string
+
+    print(r'This doesn't need anything special!')
+
+Strings are immutable - that is, we can't edit a string.
+
 # Integers
 These are simply whole numbers without decimals, and are inputted as plain numbers.
 
@@ -162,4 +176,53 @@ We can combine multiple conditions in a single statement using and, or and not:
 - Or requires only a single condition to be true to be executed
 - Not inverts the condition
 
+# Randomisation
+There is a library in Python that can assist us in generating random numbers. We can bring it into our code as follows:
+
+    import random
+
+If we want a random integer between a certain range:
+
+    random_int = random.randint(start, end)
+
+If we want a random number between 0 and 1:
+
+    random_float = random.random()
+
+If we want a random floating number between certain ranges, we can multiply it by the end range to get a random float between 0 and end range point.
+
+# Modules
+We don't always need to keep everything in the same script to be able to access it. The random library mentioned above is an example of this - this is called a module. You can import modules and access functions and variable definitions from it.
+
+For example, if you have a script saved called my_module that stores the value of pi in a variable named pi, we can access it as follows:
+
+    import my_module
+    print(my_module.pi)
+
+# Lists
+Lists are a data structure, used to organise data in Python that is part of the same collection. They can contain any types of data together. Their syntax is as follows:
+
+    my_list = [item 1, item 2, ..., item n]
+
+These items do have an order and this can be useful too. You can index them as you do strings.
+
+You can adjust items in a list:
+
+    my_list[1] = "my adjustment"
+
+If you want to add an item to an end of a list:
+
+    my_list.append("New item")
+
+You can add on another list using extend:
+
+    my_list.extend([item1, item2])
+
+Lists are mutable - we can change what is stored in them. Note that if we assign a list into a new variable without making a copy, any operations done on the new variable will affect the old variable too. The safest thing is to make a copy:
+
+    new_list = my_list.copy()
+
+You can make nested lists to link related data together. To access sub-lists, we just add more indexing brackets:
+
+    nested_list[1][3]
 

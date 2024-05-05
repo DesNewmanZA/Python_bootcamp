@@ -191,6 +191,14 @@ If we want a random number between 0 and 1:
 
 If we want a random floating number between certain ranges, we can multiply it by the end range to get a random float between 0 and end range point.
 
+We can select an item from a list randomly as follows:
+
+    random.choice(my_list)
+
+We can shuffle a list randomly and in place as follows:
+
+    random.shuffle(my_list)
+
 # Modules
 We don't always need to keep everything in the same script to be able to access it. The random library mentioned above is an example of this - this is called a module. You can import modules and access functions and variable definitions from it.
 
@@ -226,3 +234,17 @@ You can make nested lists to link related data together. To access sub-lists, we
 
     nested_list[1][3]
 
+# For loops
+Used to repeat something a predetermined number of times. 
+
+To use for loops with a list:
+
+    for item in list_of_items:
+        do action
+
+To use for loops without a list, the range function is very useful to determine how many times we should run things.
+
+    for number in range(a, b, step):
+        do action
+
+Note that the start point a is included but not the end point b.

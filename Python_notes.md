@@ -167,7 +167,7 @@ The syntax is as follows:
     else:
         do action 3
 
-Note the indentation used here! The computer will test condition 1 first, and if it is false, it moves onto the next condition to test until all options are spent. We can nest multiple if/else statements within each other, being mindful of indentation.
+Note the indentation used here (4 spaces or one tab - spaces are preferred)! The computer will test condition 1 first, and if it is false, it moves onto the next condition to test until all options are spent. We can nest multiple if/else statements within each other, being mindful of indentation.
 
 We can use </>/<=/>= operators to compare numeric variables. We can also test for equality using == or non-equality using != within our conditions.
 
@@ -248,3 +248,29 @@ To use for loops without a list, the range function is very useful to determine 
         do action
 
 Note that the start point a is included but not the end point b.
+
+# Functions
+There are plenty of built-in functions. A good reference is here:
+https://docs.python.org/3/library/functions.html
+
+Functions always are denoted by brackets, taking in an input.
+
+Custom functions can be written as follows:
+
+    def my_function_name(input1, ..., inputm):
+        actions
+
+The function is the called as follows:
+
+    my_function_name(input1, ..., inputm)
+
+# Style guide
+It's best practice to follow the recommended style for your code. This can be found here:
+https://peps.python.org/pep-0008/
+
+# While loops
+These are best used to loop when we don't have a predetermined number of times to loop for upfront, and are rather looking for a condition to be satisfied. Syntax:
+
+    while condition is true:
+        do action
+

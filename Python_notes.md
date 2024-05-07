@@ -167,7 +167,7 @@ The syntax is as follows:
     else:
         do action 3
 
-Note the indentation used here! The computer will test condition 1 first, and if it is false, it moves onto the next condition to test until all options are spent. We can nest multiple if/else statements within each other, being mindful of indentation.
+Note the indentation used here (4 spaces or one tab - spaces are preferred)! The computer will test condition 1 first, and if it is false, it moves onto the next condition to test until all options are spent. We can nest multiple if/else statements within each other, being mindful of indentation.
 
 We can use </>/<=/>= operators to compare numeric variables. We can also test for equality using == or non-equality using != within our conditions.
 
@@ -190,6 +190,14 @@ If we want a random number between 0 and 1:
     random_float = random.random()
 
 If we want a random floating number between certain ranges, we can multiply it by the end range to get a random float between 0 and end range point.
+
+We can select an item from a list randomly as follows:
+
+    random.choice(my_list)
+
+We can shuffle a list randomly and in place as follows:
+
+    random.shuffle(my_list)
 
 # Modules
 We don't always need to keep everything in the same script to be able to access it. The random library mentioned above is an example of this - this is called a module. You can import modules and access functions and variable definitions from it.
@@ -225,4 +233,44 @@ Lists are mutable - we can change what is stored in them. Note that if we assign
 You can make nested lists to link related data together. To access sub-lists, we just add more indexing brackets:
 
     nested_list[1][3]
+
+# For loops
+Used to repeat something a predetermined number of times. 
+
+To use for loops with a list:
+
+    for item in list_of_items:
+        do action
+
+To use for loops without a list, the range function is very useful to determine how many times we should run things.
+
+    for number in range(a, b, step):
+        do action
+
+Note that the start point a is included but not the end point b.
+
+# Functions
+There are plenty of built-in functions. A good reference is here:
+https://docs.python.org/3/library/functions.html
+
+Functions always are denoted by brackets, taking in an input.
+
+Custom functions can be written as follows:
+
+    def my_function_name(input1, ..., inputm):
+        actions
+
+The function is the called as follows:
+
+    my_function_name(input1, ..., inputm)
+
+# Style guide
+It's best practice to follow the recommended style for your code. This can be found here:
+https://peps.python.org/pep-0008/
+
+# While loops
+These are best used to loop when we don't have a predetermined number of times to loop for upfront, and are rather looking for a condition to be satisfied. Syntax:
+
+    while condition is true:
+        do action
 

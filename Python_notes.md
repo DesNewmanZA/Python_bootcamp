@@ -264,6 +264,12 @@ The function is the called as follows:
 
     my_function_name(input1, ..., inputm)
 
+The variables being inputted are called parameters, and the actual values of those parameters are called the arguments.
+
+Python functions are by default positional arguments. That is, without further specification, python will assign the arguments in the order they're defined in the function. The parameters can be explicitly defined when arguments are passed to disregard the ordering - this is called keyword arguments.
+
+    my_function(b=input1, c=input2, a=input3)
+
 # Style guide
 It's best practice to follow the recommended style for your code. This can be found here:
 https://peps.python.org/pep-0008/
@@ -273,4 +279,3 @@ These are best used to loop when we don't have a predetermined number of times t
 
     while condition is true:
         do action
-

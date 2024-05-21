@@ -279,3 +279,21 @@ These are best used to loop when we don't have a predetermined number of times t
 
     while condition is true:
         do action
+
+# Dictionaries
+Dictionaries store keys that we can use to look up things, and then an associated value with some information stored about the key. Syntax:
+
+    dictionary = {key : value, key2 : value2}
+
+Typical formatting is leaving the { on the line where it is defined, each entry on a new line with a tab, and the } in line with the definition.
+
+To fetch items from a dictionary:
+
+    my_dict[key]
+
+If we add new items or edit an existing item:
+
+    my_dict[key] = value
+
+Looping through a dictionary with a for loop will only give you the key. So if you want the value, you would loop using that key. Note that values can be anything - even lists and other dictionaries.
+

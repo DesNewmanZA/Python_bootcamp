@@ -270,6 +270,18 @@ Python functions are by default positional arguments. That is, without further s
 
     my_function(b=input1, c=input2, a=input3)
 
+When we want to output things, we use the return function:
+
+    def my_function(input):
+        actions
+        return output
+
+If we assign this as a variable, the output will be assigned to this variable:
+
+    output = my_function(input)
+
+Note that when a return function is executed, the function exits and nothing further is examined.
+
 # Style guide
 It's best practice to follow the recommended style for your code. This can be found here:
 https://peps.python.org/pep-0008/
@@ -296,4 +308,15 @@ If we add new items or edit an existing item:
     my_dict[key] = value
 
 Looping through a dictionary with a for loop will only give you the key. So if you want the value, you would loop using that key. Note that values can be anything - even lists and other dictionaries.
+
+# Docstrings
+These allow us to add documentation in our functions to help explain what we are doing.
+
+These go right after the function definition and they are defined by 3 quotation marks:
+
+    def my_function(input):
+        '''Your document strings 
+                - can be multiline'''
+        actions
+        return output
 

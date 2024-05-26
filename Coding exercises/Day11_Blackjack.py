@@ -50,17 +50,25 @@ def calc_score(hand):
             score += 1
         else:
             score += 11
-    
-    # Check if blackjack or bust
-    blackjack = False
-    bust = False
-    if score == 21:
-        blackjack = True
-    elif score > 21:
-        bust = True
+    return score
 
-    # Output the final hand's score
-    return score, blackjack, bust
+# Function to evaluate game output    
+def find_winner(dealer_score, user_score):
+    '''Function takes in dealer score and user score and determines the game's outcome'''
+    if dealer_score == 21:
+        print("Dealer blackjack! Dealer wins!")
+    elif user_score == 21:
+        print("Player blackjack! Player wins!")
+    elif user_score > 21:
+        print("Player exceeds 21! Dealer wins!")
+    elif dealer_score > 21:
+        print("Dealer exceeds 21! Player wins!")
+    elif dealer_score == user_score:
+        print("Player score equals dealer score! Draw!")
+    elif dealer_score > user_score:
+        print("Dealer score higher than player's! Dealer wins!")
+    else:
+        print("Player score higher than dealer's! Player wins!")
 
 # Function to handle outputting of results 
 def show_results(hand, score, player):
@@ -80,18 +88,11 @@ while not done:
     print(f"The dealer's first card is {dealer_hand[0]}")
 
     # Calculate dealer and user scores, and whether there's a winner yet
-    dealer_score, dealer_blackjack, dealer_bust = calc_score(dealer_hand)
-    user_score, user_blackjack, user_bust = calc_score(user_hand)
+    dealer_score = calc_score(dealer_hand)
+    user_score = calc_score(user_hand)
 
     # Determine if anyone has won or lost thus far
-    if dealer_blackjack:
-        print("Dealer blackjack! Dealer wins!")
-        done = True
-    elif user_blackjack:
-        print("Player blackjack! Player wins!")
-        done = True
-    elif user_bust:
-        print("Player exceeds 21! Dealer wins!")
+    if dealer_score == 21 or user_score >= 21:
         done = True
     # If nobody has won or lost yet, prompt for if the user wants another card
     else:
@@ -103,7 +104,7 @@ while not done:
             while dealer_score < 17:
                 new_card, curr_deck = deal_hand(curr_deck, 1)
                 dealer_hand = dealer_hand + new_card
-                dealer_score, dealer_blackjack, dealer_bust = calc_score(dealer_hand)
+                dealer_score = calc_score(dealer_hand)
             
         # If further cards wanted, draw another card and add to user hand
         else:
@@ -111,16 +112,8 @@ while not done:
             user_hand = user_hand + new_card
     print("______________________________________")
 
-# Tally up game
+# Final results
 show_results(dealer_hand, dealer_score, "Dealer")
 show_results(user_hand, user_score, "User")
-            
-# Final results
-if dealer_bust:
-    print("Dealer exceeds 21! Player wins!")
-elif dealer_score > user_score:
-    print("Dealer score higher than player's! Dealer wins!")
-elif dealer_score < user_score:
-    print("Player score higher than dealer's! Player wins!")
-else:
-    print("Player score equals dealer score! Draw!")
+find_winner(dealer_score, user_score)
+print("______________________________________")

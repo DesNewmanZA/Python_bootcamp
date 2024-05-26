@@ -14,7 +14,7 @@ logo = """
 """
 
 # Define a deck of cards and shuffle them
-full_deck = ([i for i in range(1,11)]*4)
+full_deck = ([i for i in range(2, 11)]*4)
 full_deck.extend(['J', 'Q', 'K', 'A']*4)
 random.shuffle(full_deck)
 
@@ -23,7 +23,7 @@ def deal_hand(deck, num_cards):
     '''Function takes in the remaining deck as an input, assuming the deck is shuffled.
     The first two elements are popped from the deck and returned as a hand.
     The remaining deck after hand removal is also returned.'''
-    hand = [deck.pop(0) for elem in range(num_cards)]
+    hand = [deck.pop(0) for _ in range(num_cards)]
     return hand, deck
 
 # Function to calculate scoring
@@ -54,7 +54,7 @@ def calc_score(hand):
 
 # Function to evaluate game output    
 def find_winner(dealer_score, user_score):
-    '''Function takes in dealer score and user score and determines the game's outcome'''
+    '''Function takes in dealer score and user score and determines the game's outcome.'''
     if dealer_score == 21:
         print("Dealer blackjack! Dealer wins!")
     elif user_score == 21:
@@ -96,7 +96,9 @@ while not done:
         done = True
     # If nobody has won or lost yet, prompt for if the user wants another card
     else:
-        another_card = input("Would you like to draw another card? Y/N? ").lower()
+        another_card = ''
+        while another_card not in ('y', 'n'):
+            another_card = input("Would you like to draw another card? Y/N? ").lower()
         # If no user cards wanted further, draw cards for the dealer - assume input is correct
         if another_card == 'n':
             done = True
@@ -105,7 +107,6 @@ while not done:
                 new_card, curr_deck = deal_hand(curr_deck, 1)
                 dealer_hand = dealer_hand + new_card
                 dealer_score = calc_score(dealer_hand)
-            
         # If further cards wanted, draw another card and add to user hand
         else:
             new_card, curr_deck = deal_hand(curr_deck, 1)

@@ -320,3 +320,17 @@ These go right after the function definition and they are defined by 3 quotation
         actions
         return output
 
+# Scope
+If we want to modify a global variable inside a function without explicitly passing it in as an input, something like the following can be done:
+
+    my_var = 1
+
+    def my_funct():
+        global my_var
+        my_var += 1
+
+This is prone to causing errors though, so this is often not a desired way to go about modifying global variables. Instead, it's more common to return the output.
+
+Global constants are useful for anything that shouldn't change. The convention for these variables is to use all upper case for these:
+
+    PI = 3.14

@@ -334,3 +334,24 @@ This is prone to causing errors though, so this is often not a desired way to go
 Global constants are useful for anything that shouldn't change. The convention for these variables is to use all upper case for these:
 
     PI = 3.14
+
+# Classes and objects
+Objects can be thought of in terms of what they have (attributes - the variables attached to it) and what they do (their methods they perform). Classes hold a template of what objects have and do, and instances of them are called objects. Classes usually have each word's first letter capitalised.
+
+When an object is defined, we can call the object's attributes as follows:
+
+    my_object.my_attribute
+
+To use an object's methods:
+
+    my_object.my_method(vars)
+
+# Installing packages
+You can install other packages by going to the python command prompt and typing:
+
+    pip install package_name
+
+A list of available packages can be found here:
+
+    https://pypi.org/
+

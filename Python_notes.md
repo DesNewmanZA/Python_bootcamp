@@ -346,6 +346,28 @@ To use an object's methods:
 
     my_object.my_method(vars)
 
+To make a class with nothing in it to start off:
+
+    class ClassName:
+        pass
+
+We can add attributes to the class as so:
+
+    my_object = ClassName()
+    my_object.my_var = value
+
+But this is a bit prone to error so rather we can specify the starting attributes of an object. We can do this with the init constructor to define the starting values:
+
+    class ClassName:
+        def __init__(self, value):
+            self.field = value
+            self.field2 = default_value 
+
+    my_object = ClassName(value)
+
+We can add functions inside the class as per normal; the only difference is the first parameter is always self.
+
+
 # Installing packages
 You can install other packages by going to the python command prompt and typing:
 

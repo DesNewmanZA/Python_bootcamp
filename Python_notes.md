@@ -207,6 +207,14 @@ For example, if you have a script saved called my_module that stores the value o
     import my_module
     print(my_module.pi)
 
+You can give a module an alias to refer to it quicker:
+
+    import module as md
+
+This will allow us to access things from the module as follows:
+
+    md.method_name()
+
 # Lists
 Lists are a data structure, used to organise data in Python that is part of the same collection. They can contain any types of data together. Their syntax is as follows:
 
@@ -377,3 +385,9 @@ A list of available packages can be found here:
 
     https://pypi.org/
 
+# Tuples
+These are denoted as follows:
+
+    my_tuple = (val1, val2, ..., valn)
+
+These are immutable. That is, they can't be changed. These are important for storing data you are sure must not be changed.

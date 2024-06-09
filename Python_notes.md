@@ -242,6 +242,8 @@ You can make nested lists to link related data together. To access sub-lists, we
 
     nested_list[1][3]
 
+We can index items in a list (called list slicing using a colon). Note that the last element is not inclusive if it is specified. These indeces can be negative eg. -1 gets the last element of the list. You can add a 2nd colon to add the jump size.
+
 # For loops
 Used to repeat something a predetermined number of times. 
 
@@ -375,6 +377,15 @@ But this is a bit prone to error so rather we can specify the starting attribute
 
 We can add functions inside the class as per normal; the only difference is the first parameter is always self.
 
+Classes have inheritance of both attributes and methods from other classes. An example is shown below.
+
+    def SubClass(MainClass):
+        def __init__(self):
+            super().__init__()
+
+        def my_method(self):
+            super().my_method()
+            # Add extra functionality for the subclass 
 
 # Installing packages
 You can install other packages by going to the python command prompt and typing:
@@ -395,5 +406,6 @@ These are immutable. That is, they can't be changed. These are important for sto
 # Event listeners
 An event listener is a function or method that detects and responds to events within a program or application. When attached to an object or element, the listener waits for a specific event to occur, such as a button click, mouse movement, or keyboard input.
 
-# Higher order function
+# Higher order functions
 These are functions that work with other functions. Note that if a function is passed to a higher order function as an argument, it doesn't require the brackets passed too.
+

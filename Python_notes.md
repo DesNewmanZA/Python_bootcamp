@@ -409,3 +409,32 @@ An event listener is a function or method that detects and responds to events wi
 # Higher order functions
 These are functions that work with other functions. Note that if a function is passed to a higher order function as an argument, it doesn't require the brackets passed too.
 
+# Working with files
+We can open a file using Python - we first need to open the file and then read in the contents, and then close it when we are done with it. The default way to open a file is read-only (mode = 'r').
+
+    my_file = open('my_file.txt')
+    contents = my_file.read()
+    my_file.close()
+
+Another way to do this without having to explictly close the file is as follows:
+
+    with open('my_file.txt') as my_file:
+        contents = my_file.read()
+
+If we want to write to a file, we can accordingly do this:
+
+    with open('my_file.txt', mode='w') as my_file:
+        my_file.write("Additional text")
+
+This will replace all contents of the file from scratch as it is essentially recreating the file anew. If this file doesn't exist and mode of write has been selected, the file will be made automatically.
+
+If we want to just add lines of code, we can make the mode = 'a' for appending. 
+
+When we are specifying paths for locating files, we can give the absolute file path (the full path that would be used in a file explorer), or we can deal with relative paths which start from where the code is saved and navigate from there.
+
+To go into folders further nested within, we start with a '.' and specify the next folders. If we want to go a folder back, we use a '..'.
+
+    ./Next_folder/my_file.txt
+    ../Higher_folder/other_file.txt
+
+If you want to go up multiple folders, we repeat the ../ as many times as needed.

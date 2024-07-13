@@ -438,3 +438,38 @@ To go into folders further nested within, we start with a '.' and specify the ne
     ../Higher_folder/other_file.txt
 
 If you want to go up multiple folders, we repeat the ../ as many times as needed.
+
+# Working with data
+Python has a library for dealing with csv files, with an associated reader. This stores each row in the data as a list.
+
+    import csv
+
+    with open('weather_data.csv') as my_file:
+        contents = csv.reader(my_file)
+
+This can be quite cumbersome, so the pandas library is often used instead to deal with data more simply. The above can be replaced as so:
+
+    import pandas as pd
+    my_df = pd.read_csv('weather_data.csv')
+
+This will automatically assign heading names to the data (if no instruction to the contrary is given) and the columns can be referenced by their names (case-sensitive):
+
+    my_col = my_df['var_name']
+or
+
+    my_col = my_df.var_name
+
+The format of the full data is a data frame; a single column is a series.
+
+If we want to get hold of rows, we define the column we want to search to search through and add a condition in the square brackets:
+
+    my_rows = my_df[my_df['var_name]==condition]
+
+If you want to make a data frame from scratch, this can be done using a dictionary of data:
+
+    my_df = pd.DataFrame(data_dict)
+
+
+
+
+

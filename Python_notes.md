@@ -579,6 +579,10 @@ We can also change padding around the window:
 
     window.config(padx=num, pady=num)
 
+We can use the canvas widget to layer things. 
+
+    canvas = tkinter.Canvas()
+
 # Advanced python arguments
 We can initialise functions with default values. That way, if these are not explictly defined/passed on a function call, the default values will be used:
 
@@ -599,4 +603,5 @@ We can also deal with an unlimited amount of keyword arguments (**kwargs).  Thes
         kwargs[key] = value
         code
 
-The problem with the above is it will throw an error if the key doesn't exist. And so, it is better to use the get function instead
+The problem with the above is it will throw an error if the key doesn't exist. And so, it is better to use the get function instead.
+

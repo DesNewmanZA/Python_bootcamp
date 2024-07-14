@@ -469,7 +469,134 @@ If you want to make a data frame from scratch, this can be done using a dictiona
 
     my_df = pd.DataFrame(data_dict)
 
+We can output data frames as a csv:
 
+    my_df.to_csv('csv_name.csv')
 
+# List and dictionary comprehension
+This can be used to create new lists without a for loop. An example of this is:
 
+    my_list = [new_item_rule for item in list if condition]
 
+This can be used with any iterable data type.
+
+    my_dict = {new_key:new_item for item in list if test}
+
+or 
+
+    my_dict = {new_key:new_item for (key,item) in dict.items() if test}
+
+You can also loop through a data frame in a similar way to dictionaries. But you can also iterate over the rows:
+
+    for (index, row) in my_df.iterrows:
+        conditions
+
+# GUIs and Tkinter
+Tkinter allows us to make GUIs. It's a module you need to import - to make a window, we would initialize it and keep 'listening' for user input until a certain condition is met (done via mainloop).
+
+    import tkinter
+    window = tkinter.Tk()
+    window.title("Header title of window")
+    window.minsize(width=x, height=y)
+    
+    # Components must be initialized and their placement specified to appear
+    label = tkinter.Label(text="Label text", font=('Arial', 20, 'bold'))
+    label.pack()
+
+    def button_clicked():
+        print("I got clicked!")
+
+    button = tkinter.Button(text='Click me!', command = button_clicked)
+    button.pack()
+
+    input = tkinter.Entry()
+    input.insert(END, string="Some text to begin with.")
+    input.pack()
+    user_input = input.get()
+
+    text = tkinter.Text()
+    text.focus() # Puts cursor here
+
+    def spinbox_used():
+        print(spinbox.get())
+    
+    spinbox = tkinter.Spinbox(from_=0, to=10, command=spinbox_used)
+    spinbox.pack()
+
+    def scale_used(value):
+        print(value)
+
+    scale = tkinter.Scale(from_=0, to=100, command=scale_used)
+    scale.pack()
+
+    def checkbutton_used():
+        print(checked_state.get())
+    
+    checked_state = tkinter.IntVar()
+    checkbutton = tkinter.Checkbutton(text="Is On?", variable=checked_state, command=checkbutton_used)
+    checked_state.get()
+    checkbutton.pack()
+
+    def radio_used():
+        print(radio_state.get())
+
+    radio_state = tkinter.IntVar()
+    radiobutton1 = tkinter.Radiobutton(text="Option1", value=1, variable=radio_state, command=radio_used)
+    radiobutton2 =tkinter.Radiobutton(text="Option2", value=2, variable=radio_state, command=radio_used)
+    radiobutton1.pack()
+    radiobutton2.pack()
+
+    def listbox_used(event):
+        print(listbox.get(listbox.curselection()))
+
+    listbox = tkinter.Listbox(height=4)
+    fruits = ["Apple", "Pear", "Orange", "Banana"]
+    for item in fruits:
+        listbox.insert(fruits.index(item), item)
+    listbox.bind("<<ListboxSelect>>", listbox_used)
+    listbox.pack()
+
+    # Must be the last thing in the code
+    window.mainloop()
+
+We can treat the label like a dictionary and update it later on:
+
+    label['text'] = 'my new text'
+
+Pack will automatically put widgets from top to bottom. The side parameter can be used to define exactly where to stack them. If you want a precise position, pack won't do the job.
+
+Place is used for precise positioning. The coordinates (0, 0) is the top left corner.
+
+    label.place(x=coord, y=coord)
+
+There is also grid that splits the window into a grid.
+
+    label.grid(column=num, row=num)
+
+This one is relative to other widgets. It's easiest to start in order from top left onwards. You can only use one of pack/grid/place. 
+
+We can also change padding around the window:
+
+    window.config(padx=num, pady=num)
+
+# Advanced python arguments
+We can initialise functions with default values. That way, if these are not explictly defined/passed on a function call, the default values will be used:
+
+    def my_funct(a=1, b=3, c=6):
+        code
+
+We can also create functions that can take an unlimited number of arguments (*args). For example, if we want to write a simple program that sums up an unlimited amount of inputted numbers. This can be done via *args as it takes the inputs in and converts them into a tuple:
+
+    def add(*args):
+        sum = 0
+        for n in args:
+            sum += int(n)
+        return sum
+
+We can also deal with an unlimited amount of keyword arguments (**kwargs).  These become a dictionary. 
+
+    def calculate(**kwargs):
+        kwargs[key] = value
+        code
+
+The problem with the above is it will throw an error if the key doesn't exist. And so, it is better to use the get function instead

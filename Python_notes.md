@@ -573,11 +573,21 @@ There is also grid that splits the window into a grid.
 
     label.grid(column=num, row=num)
 
-This one is relative to other widgets. It's easiest to start in order from top left onwards. You can only use one of pack/grid/place. 
+This one is relative to other widgets. It's easiest to start in order from top left onwards. You can only use one of pack/grid/place. We can use columnspan to make things go over multiple columns.
 
 We can also change padding around the window:
 
     window.config(padx=num, pady=num)
+
+We can use the canvas widget to layer things. 
+
+    canvas = tkinter.Canvas()
+
+We can also make pop-up message boxes:
+
+    from tkinter import messagebox
+    messagebox.showinfo(title='title', message='message')
+    messagebox.askokcancel(title='title', message='message')
 
 # Advanced python arguments
 We can initialise functions with default values. That way, if these are not explictly defined/passed on a function call, the default values will be used:
@@ -599,4 +609,74 @@ We can also deal with an unlimited amount of keyword arguments (**kwargs).  Thes
         kwargs[key] = value
         code
 
-The problem with the above is it will throw an error if the key doesn't exist. And so, it is better to use the get function instead
+The problem with the above is it will throw an error if the key doesn't exist. And so, it is better to use the get function instead.
+
+# Exception handling
+Key errors are when we look for something in a dictionary that doesn't exist. Index errors are when we look at an index that doesn't exist. A type error is when we try do an operation on something that can't be done on the data type. We can try plan for and handle these cases.
+
+    try:
+        Will try this but may give errors
+    except:
+        If the try fails, do this
+    else:
+        Do if there were no exceptions
+    finally:
+        Do this no matter what happens
+
+Our exceptions should usually be clarified for the exception type. We can use a qualifying type:
+
+    try:
+        Code to try
+    except FileNotFoundError:
+        Do this
+    except KeyError:
+        Do this
+
+You can grab the error message as well:
+
+    try:
+        Code to try
+    except KeyError as error_msg:
+        Do this and can reference error_msg
+
+We can also raise our own exceptions:
+
+    raise TypeError("Your error message here")
+
+This can be useful for validating inputs eg. ValueError
+
+# JSON files
+This stands for JavaScript Object Notation and is a standardised way of transmitting text data. It can look a bit like a dictionary:
+
+    {
+    "employees":[
+        {"firstName":"John", "lastName":"Doe"},
+        {"firstName":"Anna", "lastName":"Smith"},
+        {"firstName":"Peter", "lastName":"Jones"}
+    ]
+    }
+
+To write to a JSON, we use json.dump():
+
+    import json
+    json.dump(dictionary, my_file, indent=nums)
+
+To read data from a JSON:
+
+    import json
+    json.dump(my_file)
+
+If we want to add to a JSON:
+
+    import json
+    json.update()
+
+General format for taking an existing JSON and updating it:
+
+    import json
+    with open('my_file.json', mode='r') as my_file:
+        my_data = json.load(my_file)
+        my_data.update(new_data)
+    with open('my_file.json', mode='w') as my_file:
+        json.dump(my_data, my_file, indent=4)
+

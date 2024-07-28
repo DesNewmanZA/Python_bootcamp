@@ -680,3 +680,71 @@ General format for taking an existing JSON and updating it:
     with open('my_file.json', mode='w') as my_file:
         json.dump(my_data, my_file, indent=4)
 
+# Emailing with Python
+SMTP = Simple Mail Transfer Protocol. Used to send and receive messages. We use smtplib and start tls which allows us to secure a connection to the server.
+
+    import smtplib
+    connection = smtplib.SMTP(smtpserver)
+    connection.starttls()
+    connection.login(user='emailaddress', password='password')
+    connection.sendemail(from_add='email', to_addrs='email', msg='Subject:text\n\nContents of email.')
+    connection.close()
+
+This requires an app password in Gmail.
+
+# Working with dates and time
+You can use datetime to get current dates as well as deal with dates. To get the current date and time:
+
+    import datetime as dt
+    dt.datetime.now()
+
+You may want to break this apart eg. get the year.
+
+    dt.datetime.now().year()
+
+To make a new date, the following can be done:
+
+    dt.datetime(year=, month=, day=, optional time inputs)
+
+# Cloud hosting
+If we want an application to be continuously running and checking,we can host it in the cloud and get it to execute periodically. A good option for this is:
+
+    https://www.pythonanywhere.com/
+
+We can upload the scripts we want to execute. Then we will start a new bash session. If the script is called main.py,
+
+    python3 main.py
+
+This will test if it is working fine. We can then schedule it accordingly, specifying a time and giving the command that must be run.
+
+# Application Programming Interfaces (APIs)
+These define how information is communicated between two different applications. You will use the rules from an API to pull data with the appropriate structured response. 
+
+You need to know the API endpoint (eg. location of the data). You also need to make a request over the interest to do this - it has checks and balances in place.
+
+To do these calls:
+
+    import requests
+    response = requests.get(url='APIendpoint')
+
+You won't see JSON data directly if you print this but rather the response code. These tell us if our request was successful or failed. The famous example is 404 (not found). You can tell what their meaning is at a high level by their first digits:
+
+- 1xx: hold on
+- 2xx: successful
+- 3xx: permission denied
+- 4xx: user error
+- 5xx: server error
+
+Code 200 is successful. A comprehensive list can be seen here:
+
+https://www.webfx.com/web-development/glossary/http-status-codes/
+
+We can raise exceptions based on the codes:
+
+    response.raise_for_status()
+
+To get the data, something like this will be done:
+
+    data = response.json()
+
+APIs also have parameters, and these allow us to give an input when making a call.

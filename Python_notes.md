@@ -292,6 +292,10 @@ If we assign this as a variable, the output will be assigned to this variable:
 
 Note that when a return function is executed, the function exits and nothing further is examined.
 
+If we want, we can define input and output types:
+
+    def my_function(var1: int) -> bool
+
 # Style guide
 It's best practice to follow the recommended style for your code. This can be found here:
 https://peps.python.org/pep-0008/
@@ -748,3 +752,8 @@ To get the data, something like this will be done:
     data = response.json()
 
 APIs also have parameters, and these allow us to give an input when making a call.
+
+Sometimes APIs can return results with HTML entities, which make it not very readable. This can be corrected as follows:
+
+    import html
+    html.unescape('symbol')

@@ -757,3 +757,18 @@ Sometimes APIs can return results with HTML entities, which make it not very rea
 
     import html
     html.unescape('symbol')
+
+Certain APIs need keys to authenticate you. 
+
+A list of free APIs: https://apilist.fun/
+
+# Environment variables
+If we go into the terminal and type env, we will get a list of information about the running environment we are using. We can set variables at an environment level rather than adjusting our code which is convenient, and it's also good for security when uploading code. We can save these variables as follows in the terminal:
+
+    export var_name=content; export var_name2=content2
+
+If you retype env, you will see that environment saved. To use these:
+
+    import os
+    content = os.environ.get("my_var")
+

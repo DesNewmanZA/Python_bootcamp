@@ -762,6 +762,13 @@ Certain APIs need keys to authenticate you.
 
 A list of free APIs: https://apilist.fun/
 
+There are other types of requests other than just getting data. The 4 main types are: get, post, put, delete. A good example of post is using the Google Sheets API to write into a sheet. Put is when you update data already existing. Delete is to get rid of existing data.
+
+    import requests
+    response = request.post(url='myurl', json='myparams')
+
+
+
 # Environment variables
 If we go into the terminal and type env, we will get a list of information about the running environment we are using. We can set variables at an environment level rather than adjusting our code which is convenient, and it's also good for security when uploading code. We can save these variables as follows in the terminal:
 

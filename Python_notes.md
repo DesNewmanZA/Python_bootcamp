@@ -767,8 +767,6 @@ There are other types of requests other than just getting data. The 4 main types
     import requests
     response = request.post(url='myurl', json='myparams')
 
-
-
 # Environment variables
 If we go into the terminal and type env, we will get a list of information about the running environment we are using. We can set variables at an environment level rather than adjusting our code which is convenient, and it's also good for security when uploading code. We can save these variables as follows in the terminal:
 
@@ -778,4 +776,63 @@ If you retype env, you will see that environment saved. To use these:
 
     import os
     content = os.environ.get("my_var")
+
+# Web development
+Websites consist of HTML, CSS and Javascript files for the most part. Each do a different job:
+- HTML gives the structure of the website/layout
+- CSS files are responsible for styling the website
+- Javascript allows the website to actually do useful things.
+
+## HTML
+HTML stands for Hyper Text Markup Language. It links together pieces of information and helps structure the information accordingly with tags (eg. bold, italic, headings etc). Tags define the structure and take the form:
+
+    <tag> content </tag>
+
+Tags can also have attributes in them giving extra customizability:
+
+    <tag class='option'> content </tag>
+
+These attributes have information that you don't want to actually appear, such as a reference to create links.
+
+Some elements, such as images, are not related to formatting content and thus do not need a closing tag:
+
+    <img src='path' />
+
+To start HTML documents, we need to initialize it as follows:
+
+    <!doctype html>
+    <html lang="en-US">
+        <head>
+            <meta charset="utf-8"/>
+            <meta name="viewport" content="width=device-width"/>
+            <title> my title </title>
+        <\head>
+        <body>
+            content here
+        <\body>
+    </html>
+
+We can define the < head > element - this is a container for everything you want on the page that isn't the content in the page eg. keywords, page descriptions, CSS for formatting etc.
+
+We can mark up headings of various sizes use tags h1 to h6 from largest to smallest.
+
+Comments can be made using < !-- and -- > (without the spaces).
+
+Paragraphs are denoted by < p >. 
+
+Lists can be unordered < ul > or order < ol >, with each list item denoted by < li >.
+
+Links can be made with a < a > and referenced as so:
+
+    <a href="URL"> Content </ a>
+
+A great set of references for HTML can be found here: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
+
+We can do a horizontal rule as follows:
+
+    <hr/>
+
+We can do breaks as follows:
+
+    <br/>
 

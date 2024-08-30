@@ -798,12 +798,12 @@ Some elements, such as images, are not related to formatting content and thus do
 
     <img src='path' />
 
-To start HTML documents, we need to initialize it as follows:
+To start HTML documents, we need to initialize it as follows (the boilerplate):
 
     <!doctype html>
-    <html lang="en-US">
+    <html lang="en">
         <head>
-            <meta charset="utf-8"/>
+            <meta charset="UTF-8"/>
             <meta name="viewport" content="width=device-width"/>
             <title> my title </title>
         <\head>

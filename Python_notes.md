@@ -836,3 +836,51 @@ We can do breaks as follows:
 
     <br/>
 
+# CSS
+This stands for Cascading Style Sheets and is used to make websites look beautiful. It informs the HTML what styling to use. There are 3 methods of inclusion:
+
+- **Inline:** < tag style='css'/ >. This specifies the CSS into the HTML. 
+Example: < html style = "background: blue" > < / html >. Useful for styling a specific element. Can make code messy so not recommended for the full document.
+- **Internal:** < style > css < style / >. Example: < style > html {background: red;} < style / >. Often goes in the head but can go anywhere and be applied to whatever elements we pick. Ok for simple websites but can grow large for big websites.
+- **External:** < link href="style.css" / >. Similar to internal except this is all stored in a separate file which keeps it neat. We include it into the HTML as follows: < head > < link  rel="stylesheet" href="./styles.css" / > < / head>.
+
+CSS is structured by selectors, which define which part of the HTML we want to style. An example below selects the h1 headings and formats those:
+
+    h1 {
+        color: blue
+    }
+
+Class selectors are as follows:
+
+    .red-heading {
+        color: red
+    }
+
+This allows us to define a class eg. red-heading. These can then be added to any element:
+
+    <h2 class="red-heading">
+
+There are also ID selectors.
+
+    #main {
+        color: red
+    }
+
+These select all elements with a particular ID attribute. Example:
+
+    <h2 id="main">
+
+ID selectors should be used for single elements; class ones can be used for many elements.
+
+There are also attribute selectors, formatting specific attributes eg. href, src, alt etc.
+
+    p[href]{
+        color: red
+    }
+
+Universal selectors apply to all elements:
+
+    *{
+        color: red
+    }
+

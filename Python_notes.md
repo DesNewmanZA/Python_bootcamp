@@ -837,7 +837,9 @@ We can do breaks as follows:
     <br/>
 
 # CSS
-This stands for Cascading Style Sheets and is used to make websites look beautiful. It informs the HTML what styling to use. There are 3 methods of inclusion:
+This stands for Cascading Style Sheets and is used to make websites look beautiful. It informs the HTML what styling to use. A good reference is here: https://www.w3schools.com/cssref/index.php.
+
+There are 3 methods of inclusion:
 
 - **Inline:** < tag style='css'/ >. This specifies the CSS into the HTML. 
 Example: < html style = "background: blue" > < / html >. Useful for styling a specific element. Can make code messy so not recommended for the full document.
@@ -883,4 +885,51 @@ Universal selectors apply to all elements:
     *{
         color: red
     }
+
+Common colour properties (common color names here https://developer.mozilla.org/en-US/docs/Web/CSS/named-color):
+- background-color
+- color
+
+When we assign a non-standard named colour, we can use the colour's hex code to do so. 
+
+    h1 {
+        color: #5D3891
+    }
+
+We can adjust the font we use too:
+
+    h1 {
+        font-weight: bold/bolder/lighter;
+        font-size: 20px/12pt;
+        font-family: Helvetica, sans-serif (specific and then backup font)
+        text-align: center/left/right
+    }
+
+If we want a relative font size, we can use 2em/2rem for example to go twice the reference size for an element. 
+
+Margins, padding and borders are also important CSS elements. We can define things such as height and width of elements:
+
+    height: 100%/200px
+    width: 100%/200px
+
+We can add borders:
+
+    border: 10px solid black
+
+The border can even be specified one side at a time:
+
+    border: 30px solid black;
+    border-width: 0px 10px 20px 30px
+
+We can add padding - this goes before the border:
+
+    padding: 20px
+
+We can also add margins - these go after the border:
+
+    margin: 10px
+
+We make boxes around our elements via content division tags. 
+
+    < div > content < /div>
 

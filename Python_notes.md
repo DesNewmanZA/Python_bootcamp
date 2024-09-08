@@ -933,3 +933,31 @@ We make boxes around our elements via content division tags.
 
     < div > content < /div>
 
+# Web scraping with beautiful soup
+Web scraping allows us to take data from a website by extracting it from the HTML file. This is done with a library called Beautiful Soup (documentation: https://www.crummy.com/software/BeautifulSoup/bs4/doc/).
+
+An example of use:
+
+    from bs4 import BeautifulSoup
+
+    with open('website.html') as my_file:
+    contents = my_file.read()
+
+    soup = BeautifulSoup(contents, 'html.parser')
+
+If the html.parser is not working, trying the lxml one may be a better way forward.
+
+Once turned into soup, we can then pull out specific elements:
+
+    web_title = soup.title
+
+We can put .name to give the html tag, and we can put .string to get hold of just the contents. This will however only retrun the first instance. If we want all, we need to go:
+
+    soup.find_all(name = tag_name)
+
+In combination with the getText() function, this can parse all content. We can go more general and use .get("reference") to find something like all the hrefs.
+
+We can also search by class, id etc. rather than just name.
+
+If we take the soup and use .prettify(), this will indent the soup for easier reading.
+

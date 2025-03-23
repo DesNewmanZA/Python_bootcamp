@@ -961,3 +961,40 @@ We can also search by class, id etc. rather than just name.
 
 If we take the soup and use .prettify(), this will indent the soup for easier reading.
 
+# Selenium webdriver - advanced web scraping
+This package can scroll, click and everything else that a human can do, making it much more powerful than Beautiful Soup.
+
+    from selenium import webdriver
+    driver = webdriver.Chrome()
+    driver.get("url")
+
+    driver.close()/quit()
+
+Close closes a single tab; quit closes the whole browser.
+
+To search for things (using class as an example):
+
+    from selenium.webdriver.common.by import By
+    pricevar_whole = driver.find_element(By.CLASS_NAME, "class text").text
+
+Searches are very powerful with this package - you can also search by xpath if traditional methods don't work.
+
+You can also use find_elements to find all instances matching a search criteria.
+
+Selenium can also be used to perform actions on a browser. Once a desired element is found, you can click it as follows:
+
+    element.click()
+
+There is a build-in method to locate anchor elements with a given link text to make this easier:
+
+    my_link = driver.find_element(By.LINK_TEXT, "link text")
+
+Combining this with the click() action can make navigating easy.
+
+We can also find a given input box and then input text as follows:
+
+    from selenium.webdriver.common.keys import Keys
+    element.send_keys("My text", Keys.ENTER)
+
+
+

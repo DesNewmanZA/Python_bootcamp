@@ -996,5 +996,45 @@ We can also find a given input box and then input text as follows:
     from selenium.webdriver.common.keys import Keys
     element.send_keys("My text", Keys.ENTER)
 
+# Web development - backend
+The frontend of a website is just what displays to the user, but to have good functionality, we need backend. The three key components to the backend are the client, the server and the database. 
+
+Flask is a common framework for web development in Python and provides a standardised way to deploy web apps. A framework is code that dictates the architecture of the project at hand - it is not like a library where we pick and choose when to call it. Rather, the framework calls your code so you have to cater for all possible cases. It has to be used from the start of a project. 
+
+The environment needs to first be set up via the terminal:
+
+    .venv\Scripts\activate
+    pip install Flask
+
+    from flask import Flask
+
+And a basic starting app:
+
+    app = Flask(__name__)
+
+    @app.route("/")
+    def hello_world():
+        return "<p>Hello, World!</p>"
+
+The app variable assignment makes a Flask instance. The "/" references the home page. The @app is called a python decorator. Decorators give additional functionality to an existing function. These are referenced by @ and the function name after which the other functions are referenced as per normal.
+
+To run the app, you would run the script as normal. Then, in the terminal:
+
+    python -m flask --app script_name run
+
+We can run this in a different way by referencing the current file being run (referenced by main):
+
+    if __name__ == '__main__':
+        app.run()
+
+Other NB terminal commands:
+ - Print working directory: pwd
+ - List items at current directory: ls
+ - Change directory: cd new_path
+ - Make new folder: mkdir new_folder_name
+ - Make new file: touch new_file_name.ext
+ - Delete file (remove): rm file_to_delete.ext
+ - Go to parent folder: cd ..
+ - To delete folders, go one level up: rm -rf folder_name 
 
 

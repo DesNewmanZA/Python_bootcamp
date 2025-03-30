@@ -999,6 +999,8 @@ We can also find a given input box and then input text as follows:
 # Web development - backend
 The frontend of a website is just what displays to the user, but to have good functionality, we need backend. The three key components to the backend are the client, the server and the database. 
 
+
+## Flask
 Flask is a common framework for web development in Python and provides a standardised way to deploy web apps. A framework is code that dictates the architecture of the project at hand - it is not like a library where we pick and choose when to call it. Rather, the framework calls your code so you have to cater for all possible cases. It has to be used from the start of a project. 
 
 The environment needs to first be set up via the terminal:
@@ -1078,3 +1080,11 @@ Templates for websites can speed up making beautiful websites. A good set:
 
     https://html5up.net/
 
+## Jinja 
+This allows us to use templating for when we want to create multiple pages but without necessarily redoing all the HTML etc. A good example is a blog where each post has its own page but all blog posts look the same, the only difference is the content.
+
+If we add two {{}} around anything within our HTML, this will then be evaluated as a python expression. This is part of Jinja markup. More complex code would live in the python script and sent to the HTML. We can do this with render_template:
+
+    render_template("index.html", num=random_number)
+
+and this can be referenced by {{num}} in the HTML.

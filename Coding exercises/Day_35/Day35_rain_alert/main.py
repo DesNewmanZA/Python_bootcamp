@@ -4,7 +4,7 @@ from twilio.rest import Client
 
 # Define constants
 API_endpoint = "https://api.openweathermap.org/data/2.5/forecast"
-API_key = "253682c0bd759acfb4255d4aa08c3dd7"
+API_key = key
 weather_parameters = {
     "lat": -33.963,
     "lon": 22.461,
@@ -12,8 +12,8 @@ weather_parameters = {
     "cnt": 4,
     "units": 'metric'
 }
-account_sid = 'AC89e6c92df93440cc709dd561508007ed'
-auth_token = 'c42b2aaae2b0e36dcf4359c7f2665e36'
+account_sid = sid
+auth_token = token
 client = Client(account_sid, auth_token)
 my_number = 'masked'
 

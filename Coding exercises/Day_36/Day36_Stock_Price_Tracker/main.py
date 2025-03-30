@@ -6,11 +6,11 @@ from datetime import date, timedelta
 # Define constants
 STOCK = "TSLA"
 COMPANY_NAME = "Tesla Inc"
-ALPHA_VANTAGE_API_KEY = "QXIHSATYWNBOA4UU"
+ALPHA_VANTAGE_API_KEY = key
 PRICE_CHANGE_THRESHOLD = 0.5
-NEWS_API_KEY = "aea2995d29fd472dbd1a57981ab2d40a"
-account_sid = 'AC89e6c92df93440cc709dd561508007ed'
-auth_token = 'c42b2aaae2b0e36dcf4359c7f2665e36'
+NEWS_API_KEY = key
+account_sid = sid
+auth_token = auth
 my_number = 'masked_number'
 
 # Define get news function

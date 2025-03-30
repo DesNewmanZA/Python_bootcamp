@@ -3,8 +3,8 @@ from twilio.rest import Client
 import smtplib
 
 # Define constants
-account_sid = 'AC89e6c92df93440cc709dd561508007ed'
-auth_token = 'c42b2aaae2b0e36dcf4359c7f2665e36'
+account_sid = sid
+auth_token = token
 my_number = 'masked'
 my_email = 'masked'
 my_email_pwd = 'masked'

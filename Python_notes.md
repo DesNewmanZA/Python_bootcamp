@@ -1098,3 +1098,31 @@ We would reference variables with {{ var_name }} and end the loop with {% endfor
 We can do similar adjustments for if statements, and end with an {{% endif %}}.
 
 If we want to create links dynamically, we can use url_for('function_name') to get it to link.
+
+# Web development - front-end
+
+## Bootstrap framework
+This is a CSS framework. It contains pre-made CSS files that can be included into projects. It has a 12 column layout system, and gives great looking responsive websites by just adding a few classes, with good compatability.
+
+We can use the link tag in the HTML head section to use it via the Content Delivery Network (CDN) urls:
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+We can then reference the classes (eg. btn btn-primary) when defining tags to make use of the styling. 
+
+The bootstrap system works with an outer container (first set of div), the rows (second set of div) and the columns (third set of div). This looks like:
+
+    <div class="container">
+        <div class="row">
+            <div class="col"> Hello </div>
+        </div>
+    </div>
+
+Bootstrap tries to give every column equal spacing within the container. If we want to predefine how many of the 12 columns are used, we can use col-number. Eg. col-6 is 50% of the columns. 
+
+A useful guide to the components:
+
+    https://getbootstrap.com/docs/5.3/components/
+

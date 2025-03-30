@@ -1088,3 +1088,13 @@ If we add two {{}} around anything within our HTML, this will then be evaluated 
     render_template("index.html", num=random_number)
 
 and this can be referenced by {{num}} in the HTML.
+
+We can run a loop as is done with conventional python as follows:
+
+    {% for item in list: %}
+
+We would reference variables with {{ var_name }} and end the loop with {% endfor %}. 
+
+We can do similar adjustments for if statements, and end with an {{% endif %}}.
+
+If we want to create links dynamically, we can use url_for('function_name') to get it to link.

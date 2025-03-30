@@ -1025,7 +1025,7 @@ To run the app, you would run the script as normal. Then, in the terminal:
 We can run this in a different way by referencing the current file being run (referenced by main):
 
     if __name__ == '__main__':
-        app.run()
+        app.run(debug=True/False)
 
 Other NB terminal commands:
  - Print working directory: pwd
@@ -1037,4 +1037,44 @@ Other NB terminal commands:
  - Go to parent folder: cd ..
  - To delete folders, go one level up: rm -rf folder_name 
 
+We can use variable names in the url paths for the route function as so:
+
+    <variable>
+
+or
+
+    <convertor: variable>
+
+where convertor can be string, int, float, path (string but with slashes).
+
+To create HTML, you can add it directly into the functions:
+
+    def greet():
+        return "<h1 style='text-align: center'> Hello world </h1>"
+
+We can adjust wrappers to reference arguments using args and kwargs. For example, if we take the first defined argument:
+
+    def decorator(function):
+        def wrapper(*args, **kwargs):
+            if args[0].method == True:
+                function(args[0])
+        return wrapper
+
+To render HTML templates, we can use the render_template() method.
+
+    from flask import render_template
+
+    @app.route('/hello')
+    def hello(name):
+        return render_template('template.html, name=name)
+
+The template must live inside the templates folder. Any static images/files/CSS must live inside a static folder. Static files are cached by Google Chrome so you have to press shift + refresh in order to do a hard reload if any of those change. 
+
+To use CSS within an HTML file, add the following in the head statement:
+
+    <link rel="stylesheet" href="static/styles.css">
+
+Templates for websites can speed up making beautiful websites. A good set:
+
+    https://html5up.net/
 

@@ -1097,7 +1097,11 @@ We would reference variables with {{ var_name }} and end the loop with {% endfor
 
 We can do similar adjustments for if statements, and end with an {{% endif %}}.
 
-If we want to create links dynamically, we can use url_for('function_name') to get it to link.
+If we want to create links dynamically, we can use {{url_for('function_name')}} to get it to link.
+
+We can also include other HTML files:
+
+    {% include "sample.html" %}
 
 # Web development - front-end
 

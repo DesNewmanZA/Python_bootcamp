@@ -2,8 +2,8 @@
 import requests
 
 # Define constants
-SHEETY_URL = "https://api.sheety.co/37a7aa2d10420dc3dfaaeaa167f0a5fa/flightDeals/prices"
-SHEETY_USERS_URL = "https://api.sheety.co/37a7aa2d10420dc3dfaaeaa167f0a5fa/flightDeals/users"
+SHEETY_URL = "PRICES_SHEET_URL"
+SHEETY_USERS_URL = "USERS_SHEET_URL"
 
 # Data manager will take data from Google sheets and update codes for the city
 class DataManager:

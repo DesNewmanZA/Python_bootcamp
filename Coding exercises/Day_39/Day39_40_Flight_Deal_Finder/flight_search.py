@@ -2,8 +2,8 @@
 import requests
 
 # Define constants
-FLIGHT_API_KEY = "TMKoIeqC9bvBhftferRVyAMeC2ysz9Pf"
-FLIGHT_API_PWD = "rNi5GUGqireGkJda"
+FLIGHT_API_KEY = "API_KEY"
+FLIGHT_API_PWD = "PWD"
 FLIGHT_API_URL = "https://test.api.amadeus.com/v2/shopping/flight-offers"
 TOKEN_URL = "https://test.api.amadeus.com/v1/security/oauth2/token"
 CITY_SEARCH_URL = "https://test.api.amadeus.com/v1/reference-data/locations/cities"

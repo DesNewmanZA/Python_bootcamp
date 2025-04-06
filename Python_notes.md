@@ -1080,6 +1080,24 @@ Templates for websites can speed up making beautiful websites. A good set:
 
     https://html5up.net/
 
+We can also get information from forms in an HTML. To do this:
+
+    from flask import Flask, render_template, request
+
+    @app.route('/url', methods=["POST"]):
+    def method():
+        if request.method == "POST":
+            var = request.form['var_name']
+        return render_template('index.html')
+
+On the HTML side, the form has to look something like this:
+
+    <form action="the_method" method="POST">
+        <label for="var">Text:</label> <input type="text" id="var" name="var" placeholder="Text" value={{request.form.var}}>
+        <input type="submit" value="Ok">
+    </form>
+
+
 ## Jinja 
 This allows us to use templating for when we want to create multiple pages but without necessarily redoing all the HTML etc. A good example is a blog where each post has its own page but all blog posts look the same, the only difference is the content.
 

@@ -1148,3 +1148,4 @@ A useful guide to the components:
 
     https://getbootstrap.com/docs/5.3/components/
 
+You can also include Bootstrap directly using the bootstrap-flask package.

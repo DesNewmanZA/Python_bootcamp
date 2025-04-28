@@ -1238,4 +1238,85 @@ The primary key will be auto-generated.
 ## Building beautiful websites - an overview of web design
 
 ### Colour theory
-The colours selected must match the mood of the site as it conveys a message.
+The colours selected must match the mood of the site as it conveys a message. Colour schemes can be analogous (where they pick colours close together on the colour wheel) creating a harmonious look (and so is good for navigation bars etc) or complementary (colours opposite on the colour wheel) to create a pop - this is typically not a good idea for text. There is also triadic colour schemes, that make a triangle on the colour wheel or squares. A good website to use to view these is the following:
+
+    https://color.adobe.com/create/color-wheel
+
+Curated colour palettes:
+
+    https://colorhunt.co/
+
+### Typography
+Fonts also convey a message. There are serif fonts (with tails at the end of the lettering) and san serif fonts (without these tails). Serif fonts look more serious, authoratative, older; san serif fonts look more approachable, novel and contemporary. Typically, it is a good idea to stick to two fonts or so to keep a design looking clean. 
+
+### User interface
+Our eyes are naturally drawn to things in a certain order. We can exploit the hierarchy of how we view things to make things clearer and better designed - this can be done with colour by constrasting, size to pull attention, and layout. You can create more interest with layout by adding blocks of text that are just the right size - blocks that are too long feel too tedious to read but short ones can feel choppy and awkward. Alignment is also an important part to make things feel coherent and designed. Minimizing alignment points looks a lot more professional. White space is also key to highlight things. It is important to design with your audience in mind - be sure to select design elements that will be consistent with the audience you are designing for.
+
+### User experience (UX)
+We may design things but people won't necessarily interact with them the way that was intended. Making things more natural to how people interact and experience things adds for a better design. Good UX makes everything feel easy and effortless. The principles for a good UX are simplicity, consistency, reading patterns (people often look at an F or Z pattern in text), all platform design, honest design (not tricking the user into an action that is not beneficial for them).
+
+Some designs that can provide inspiration or provoke thought:
+
+    https://collectui.com/
+
+# Building a REST API
+REST = representational state transfer. It is an architectural style for APIs, considered the gold standard for web APIs.
+
+We need to use HTTP request verbs (GET/POST/PUT/PATCH/DELETE) and use a specific pattern of routes/endpoint URLs. GET and DELETE can be used on all items or a specific item. POST is used to create one new item. PUT and PATCH are used for modifying a specific item. It is good practice to also return HTTP codes (see https://www.webfx.com/web-development/glossary/http-status-codes/).
+
+An example of GET:
+
+    @app.route("/random", methods=["GET"])
+    def get_random_cafe():
+        cafes = db.session.execute(db.select(Cafe)).scalars().all()
+        random_cafe = random.choice(cafes)
+
+        return jsonify(cafe = {
+                        'id': random_cafe.id,
+                        'name': random_cafe.name,
+                        'location': random_cafe.location
+                    })
+
+This can get tedious however if dealing with larger tables. Another way of approaching this is turning the data into a dictionary and then casting to JSON. Under the table class definition, a 'to dictionary' function can be added as follows:
+
+    def to_dict(self):
+        dictionary = {}
+        for column in self.__table__.columns:
+            dictionary[column.name] = getattr(self, column.name)
+        return dictionary
+
+And the code can be adjusted as follows:
+
+    @app.route("/random", methods=["GET"])
+    def get_random_cafe():
+        cafes = db.session.execute(db.select(Cafe)).scalars().all()
+        random_cafe = random.choice(cafes)
+        return jsonify(cafe=random_cafe.to_dict())
+
+An example of POST:
+
+    @app.route("/add", methods=["POST"])
+    def add_cafe():
+        new_cafe = Cafe(
+            name=request.form.get("name"),
+            map_url=request.form.get("map_url"),
+            location=request.form.get("location")
+        )
+    db.session.add(new_cafe)
+    db.session.commit()
+    return jsonify(response={"success": "Successfully added the new cafe."})
+
+PUT replaces an entire entry. PATCH updates only the needed portions. An example of PATCH:
+
+    @app.route("/update-price/<cafe_id>", methods=["GET", "PATCH"])
+    def update_price(cafe_id):
+        new_price = request.args.get("new_price")
+        selected_cafe = db.session.execute(db.select(Cafe).where(Cafe.id == cafe_id)).scalar()
+        if selected_cafe:
+            selected_cafe.coffee_price = new_price
+            db.session.commit()
+            return jsonify(response={"success": "Successfully updated the price."}), 200
+        else:
+            return jsonify(error={"Not Found": "Sorry a cafe with that id was not found in the database."}), 404
+
+Note that the postman app can be used for API testing and documentation.

@@ -1149,3 +1149,88 @@ A useful guide to the components:
     https://getbootstrap.com/docs/5.3/components/
 
 You can also include Bootstrap directly using the bootstrap-flask package.
+
+## Data storage using SQL
+Data can be stored for website continuity. This can be done as follows:
+
+    import sqlite3
+    db = sqlite3.connect("filename.db")
+
+If the database doesn't exist, it will be made. To insert data, we need to create a cursor to control the database. Databases can have multiple tables within them.
+
+A table can be made as follows (as an example):
+
+    cursor.execute("CREATE TABLE table_name (id INTEGER PRIMARY KEY, title varchar(250) NOT NULL UNIQUE, author varchar(250) NOT NULL, rating FLOAT NOT NULL)")
+
+The primary key uniquely identifies a record. The 'not null' piec ensures that the field can't be empty. 'Unique' means no new records can have the same value. 
+
+Data can be added in as follows:
+
+    cursor.execute("INSERT INTO books VALUES(1, 'Harry Potter', 'J. K. Rowling', '9.3')")
+    db.commit()
+
+The above is using SQL more directly; however, SQLAlchemy can be used to script things a bit easier. It maps relationships in a database into objects. Each table is a separate class and each row of data is a new object. To use this, something like the below can be used:
+
+    from flask import Flask
+    from flask_sqlalchemy import SQLAlchemy
+    from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
+    from sqlalchemy import Integer, String, Float
+
+    app = Flask(__name__)
+
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database_name.db'
+    db = SQLAlchemy(app)
+
+    class Row(db.Model):
+        id = db.Column(db.Integer, primary_key=True)
+        title = db.Column(db.String(250), nullable=False, unique=True)
+        rating = db.Column(db.Float(), nullable=False)
+
+    with app.app_context():
+        db.create_all()
+        new_row = Row(title="some title 3", rating=9)
+        db.session.add(new_row)
+        db.session.commit()
+
+The main operations can be done as follows:
+
+### Create new record:
+The primary key will be auto-generated.
+
+    with app.app_context():
+        db.create_all()
+        new_row = Row(title="some title 3", rating=9)
+        db.session.add(new_row)
+        db.session.commit()
+
+### Read all records: 
+
+    with app.app_context():
+        result = db.session.execute(db.select(Row).order_by(Row.title))
+        all_rows = result.scalars()
+
+### Read a single record
+
+    with app.app_context():
+        book = db.session.execute(db.select(Row).where(Row.title == "condition")).scalar()
+
+### Update a particular record by query
+
+    with app.app_context():
+        row_to_update = db.session.execute(db.select(Row).where(Row.title == "condition")).scalar()
+        row_to_update.title = "New value"
+        db.session.commit() 
+
+### Update a particular record by ID
+
+    with app.app_context():
+        row_to_update = db.session.execute(db.select(Row).where(Row.id == book_id)).scalar()
+        row_to_update.title = "New condition"
+        db.session.commit()  
+
+### Delete record by primary key
+
+    with app.app_context():
+        row_to_delete = db.session.execute(db.select(Row).where(Row.id == book_id)).scalar()
+        db.session.delete(row_to_delete)
+        db.session.commit()

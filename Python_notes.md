@@ -1234,3 +1234,8 @@ The primary key will be auto-generated.
         row_to_delete = db.session.execute(db.select(Row).where(Row.id == book_id)).scalar()
         db.session.delete(row_to_delete)
         db.session.commit()
+
+## Building beautiful websites - an overview of web design
+
+### Colour theory
+The colours selected must match the mood of the site as it conveys a message.

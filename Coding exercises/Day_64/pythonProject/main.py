@@ -12,7 +12,7 @@ from sqlalchemy.exc import IntegrityError
 # Define static variables
 MOVIE_SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
 MOVIE_ID_URL = "https://api.themoviedb.org/3/movie/"
-API_KEY = '5bd8b85d00a027d1cac1066878524408'
+API_KEY = 'myapikey'
 
 # Create a flask instance
 app = Flask(__name__)

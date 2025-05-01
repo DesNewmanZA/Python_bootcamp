@@ -1319,4 +1319,23 @@ PUT replaces an entire entry. PATCH updates only the needed portions. An example
         else:
             return jsonify(error={"Not Found": "Sorry a cafe with that id was not found in the database."}), 404
 
+An example of DELETE:
+
+    @app.route("/report-closed/<cafe_id>", methods=["DELETE"])
+    def report_closed(cafe_id):
+        api_key = request.args.get("api-key")
+        if api_key == "TopSecretAPIKey":
+            selected_cafe = db.session.execute(db.select(Cafe).where(Cafe.id == cafe_id)).scalar()
+            if selected_cafe:
+                db.session.delete(selected_cafe)
+                db.session.commit()
+                return jsonify(response={"success": "Successfully deleted the cafe from the database."}), 200
+            else:
+                return jsonify(error={"Not Found": "Sorry a cafe with that id was not found in the database."}), 404
+        else:
+            return jsonify(error={"Forbidden": "Sorry, that's not allowed. Make sure you have the correct api_key."}), 403
+
 Note that the postman app can be used for API testing and documentation.
+
+# Authentication
+We can make a form to get user details and store that in a database but that is not very secure. We can increase this authentication security by adding encryption with a hash function. Passwords must never be passed in plain text. Additional security can be added with password salting. This is where random characters are also added alongside prior to hashing and combined with the password to combat how people tend to make weak passwords. 

@@ -1362,3 +1362,8 @@ A good website to learn how to use Git in greater detail:
     https://learngitbranching.js.org/
 
 # Web deployment
+We need to be certain that all critical information is stored securely, like environment variables etc.
+
+When we want to deploy into production, we need to use a Web Server Gateway Interface (WSGI). This is because normal web servers can't run python so WSGI servers standardise things between the Python Flask app and the server. Gunicorn is a popular one to run the code.
+
+We then need to tell the hosting provider about the gunicorn server, app name, and how to run our Flask app via a Procfile. 

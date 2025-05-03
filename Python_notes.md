@@ -1370,4 +1370,124 @@ We then need to tell the hosting provider about the gunicorn server, app name, a
 
     web: gunicorn main:app
 
-There are many different hosting providers (render, pythonanywhere, vercel).
+There are many different hosting providers (render, pythonanywhere, vercel). In Render, click on "web services", and starting command "gunicorn main:app".
+
+These websites need a different type of database rather than SQLite. This is because this is a file-based database - this is good for debugging, but once deployed, the file locations are shifted around and can get wiped as a result as it has no network interface. The answer to this is PosgreSQL that answers for these shortcomings. These can be set up via Render. They are flexible and do not require pre-definition other than a database name.
+
+# Data science
+
+## Data manipulation
+Pandas is the key to exploring data in Python. To read in a CSV:
+
+    import pandas as pd
+    df = pd.read_csv('my_file.csv')
+
+This takes in data and reads it in as a data frame. To view the first 5 entries or last 5 entries:
+
+    df.head()
+    df.tail()
+
+To understand the size of the data set, the following command can be used:
+
+    df.shape
+
+The column names can also be accessed as follows:
+
+    df.columns
+
+Before proceeding with any data analysis, there should be treatment for missing data as well as scanning for any junk data. We can look for missing numerical values as follows:
+
+    df.isna()
+
+We can simply drop missings as follows:
+
+    df = df.dropna()
+
+To access a particular column in a data frame, we reference it by the column name:
+
+    df['column name']
+
+We can use operations to examine the traits of the variables:
+
+    df['column name'].max()
+    df['column name'].min()
+
+We can find the corresponding location of the max/min using the following:
+
+    df['column name'].idxmax()
+    df['column name'].idxmin()
+
+To show data at a particular location, we can use the following:
+
+    df.loc[observation_number]
+
+Columns can be added and subtracted from one another, and new columns added:
+
+    col = df['col1'] + df['col2']
+    df.insert(pos, 'name', col)
+
+We can sort our data frames as follows:
+
+    df.sort_values(['col1', 'col2'])
+
+The equivalent of summary tables can be made as follows:
+
+    df.groupby(['col1', 'col2']).count()/sum()/mean()
+
+We can round everything to two decimal places and make it easier to read as follows:
+
+    pd.options.display.float_format = '{:,.2f}'.format 
+
+If we have dates we want converted to date time, the following can be used
+
+    df['Date col'] = pd.to_datetime(df['Date col'])
+
+We can create pivot tables:
+
+    pivot = df.pivot(index='Row col', columns=['Col1', 'Col2'], values='Val col')
+
+We can also replace missing values with a given value:
+
+    df.fillna(0, inplace=True) 
+
+## Data visualisation
+Matplotlib can be used to create charts to visualise data. 
+
+    import matplotlib.pyplot as plt
+    plt.plot(x, y)
+
+Our plot can be customized:
+
+    .figure() - allows us to resize our chart
+    .xticks() - configures our x-axis
+    .yticks() - configures our y-axis
+    .xlabel() - add text to the x-axis
+    .ylabel() - add text to the y-axis
+    .ylim() - allows us to set a lower and upper bound
+
+We can also plot multiple lines on one graph:
+
+    for column in df.columns:
+        plt.plot(df.index, df[column], label=df[column].name)
+        plt.legend()
+
+Rolling averages can be made as follows:
+
+    roll_df = df.rolling(window=6).mean()
+    for column in roll_df.columns:
+        plt.plot(roll_df.index, roll_df[column], label=roll_df[column].name)
+ 
+## Filtering, merging, aggregating data
+Data in a data frame can be filtered. Two methods are shown below.
+
+    df[df['col'] == cond]
+    df.query('is_coltrans == "cond"')
+
+We can aggregate different operations using the agg function:
+
+    df.agg({'Col1' : ['sum', 'min'], 'Col2' : ['min', 'max']})
+
+Data frames can be merged as follows:
+
+    merged_df = pd.merge(df1, df2, on='key')
+

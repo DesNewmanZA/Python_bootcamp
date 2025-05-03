@@ -1339,3 +1339,31 @@ Note that the postman app can be used for API testing and documentation.
 
 # Authentication
 We can make a form to get user details and store that in a database but that is not very secure. We can increase this authentication security by adding encryption with a hash function. Passwords must never be passed in plain text. Additional security can be added with password salting. This is where random characters are also added alongside prior to hashing and combined with the password to combat how people tend to make weak passwords. 
+
+The code needed for this is quite complex and convoluted. The Day 68 project has good example of creating a login page with authentication, password hashing, checking if a user is logged in and providing continuity.
+
+# Git
+Git allows us to do version control on our codes. Repositories can be made where code is stored and Git can assist with the versioning of these files. When saving code versions, the first step is staging which allows us to pick which files are going to be saved. When we are ready to save this version, we will commit the files alongside a commit message. This message should be meaningful and describe what was done. These messages tend to be written in the present tense.
+
+Git allows the differences between versions to be tracked. If we want to go back to a prior file version, there is functionality to revert.
+
+Git can be used via a terminal, or via GUIs. Repos can be hosted remotely like on GitHub and this also has an associated app for ease of use. We can take code on our computer and 'push' to the remote repository so that it is uploaded there. 
+
+In Git, there are branches. The 'main' branch is typically where your final versions are stored. We can branch off of the code to work on features simultaneously without interferring with what is the main code. These can then be merged back into the main branch when ready - there may or may not be conflicts to resolve on this depending on if main has changed since on the specific code lines under consideration.
+
+There is a gitignore command that specifies which files should not be committed - this could include files that should not be shared (like those storing environment variables) or files that are part of project builds but not relevant to the code (like device-specific configuration files). To make use of this, we would open the gitignore file made within each git repository and then add the file names of what should be ignored within. This is a good pre-built template of what to ignore in commits:
+
+    https://github.com/github/gitignore/blob/main/Python.gitignore
+
+We can also clone other people's repositories for our own purposes, like editing, contributing etc. Cloning makes a local copy of a repo; you can also fork a repo which makes a copy on a remote repository. A pull request can then be made to try contribute to the original repo. Pull requests are also used to update remote code from a changed local clone in general.
+
+A good website to learn how to use Git in greater detail:
+
+    https://learngitbranching.js.org/
+
+# Web deployment
+We need to be certain that all critical information is stored securely, like environment variables etc.
+
+When we want to deploy into production, we need to use a Web Server Gateway Interface (WSGI). This is because normal web servers can't run python so WSGI servers standardise things between the Python Flask app and the server. Gunicorn is a popular one to run the code.
+
+We then need to tell the hosting provider about the gunicorn server, app name, and how to run our Flask app via a Procfile. 

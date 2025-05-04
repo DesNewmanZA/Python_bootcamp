@@ -1450,6 +1450,16 @@ We can also replace missing values with a given value:
 
     df.fillna(0, inplace=True) 
 
+We can get a whole host of basic statistics as follows:
+
+    df.describe()
+
+If we have various data of different time stamps (eg. some monthly, some daily), we can resample to get comparable time series.
+
+    df_monthly = df_daily.resample('M', on='DATE').last()
+
+This will resample to monthly, using the last snapshot per month.
+
 ## Data visualisation
 Matplotlib can be used to create charts to visualise data. 
 
@@ -1476,6 +1486,15 @@ Rolling averages can be made as follows:
     roll_df = df.rolling(window=6).mean()
     for column in roll_df.columns:
         plt.plot(roll_df.index, roll_df[column], label=roll_df[column].name)
+
+We can also use plotly to make beautiful graphs:
+
+    import plotly.express as px
+    fig = px.pie(labels=, values=)
+
+As well as seaborn:
+
+    import seaborn as sns
  
 ## Filtering, merging, aggregating data
 Data in a data frame can be filtered. Two methods are shown below.
@@ -1490,4 +1509,53 @@ We can aggregate different operations using the agg function:
 Data frames can be merged as follows:
 
     merged_df = pd.merge(df1, df2, on='key')
+
+Duplicates can be dropped as follows:
+
+    df = df.drop_duplicates(subset=['Col1', 'Col2'])
+
+## Computation with numpy
+Numpy is the standard for numeric computing in python and shines at low level tasks and matrices.
+
+    import numpy as np
+
+Data types in these arrays must be homogeneous.
+
+To make a new array from scratch:
+
+    my_array = np.array([var1, var2, var3])
+    array_2d = np.array([[var1, var2], [var3, var4]])
+
+N-dimensional arrays can be made too.
+
+Things can be accessed in the same way as lists.
+
+Images are just collections of pixels with an RGB value per pixel. This means we can use numpy to manipulate them.
+
+    from PIL import Image
+
+## Relationships in data
+Simple regression plots with confidence intervals can be made using seaborn:
+
+    sns.regplot(data=df, 
+            x=col_x,
+            y=col_y)
+
+To fit regression models and better deep dive into the data, it is better to use a specialised package like scikit-learn.
+
+    from sklearn.linear_model import LinearRegression
+    regression = LinearRegression()
+    X = pd.DataFrame(df, columns=['col1'])
+    y = pd.DataFrame(df, columns=['col2']) 
+    regression.fit(X, y)
+
+We can obtain the coefficient, intercept and r-squared as follows:
+
+    regression.coef_
+    regression.intercept_
+    regression.score(X, y)
+
+We can also make new predictions with this trained model as follows:
+
+    regression.predict(new_X)
 

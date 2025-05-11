@@ -1,0 +1,38 @@
+[
+    {
+      "name": "Spending time with my husband",
+      "icon": "fas fa-heart"
+    },
+    {
+      "name": "Forest walks",
+      "icon": "fas fa-tree"
+    },
+    {
+      "name": "Exploring rock pools",
+      "icon": "fas fa-water"
+    },
+    {
+      "name": "Swimming in rivers",
+      "icon": "fas fa-swimmer"
+    },
+    {
+      "name": "Sewing",
+      "icon": "fas fa-tshirt"
+    },
+    {
+      "name": "Gaming",
+      "icon": "fas fa-gamepad"
+    },
+    {
+      "name": "Learning how to code new things",
+      "icon": "fas fa-laptop-code"
+    },
+    {
+      "name": "Playing golf",
+      "icon": "fas fa-golf-ball"
+    },
+    {
+      "name": "Music",
+      "icon": "fas fa-music"
+    }
+  ]

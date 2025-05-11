@@ -1,0 +1,51 @@
+
+[
+  {
+    "award_name": "Mark of Excellence",
+    "award_year": 2019,
+    "institute": "Standard Bank South Africa",
+    "description": "Awarded to employees who have demonstrated outstanding performance."
+  },
+  {
+    "award_name": "Best MSc in the school of Computational and Applied Mathematics",
+    "award_year": 2016,
+    "institute": "University of the Witwatersrand",
+    "description": ""
+  },
+  {
+    "award_name": "Herbert Le May Prize",
+    "award_year": 2014,
+    "institute": "University of the Witwatersrand",
+    "description": "Awarded to the best third year student in Computational and Applied Mathematics."
+  },
+  {
+    "award_name": "Most distinguished female graduate in the natural sciences",
+    "award_year": 2014,
+    "institute": "University of the Witwatersrand and South African Association of Women Graduates",
+    "description": ""
+  },
+  {
+    "award_name": "Rand Merchant Bank Gold Medal",
+    "award_year": 2014,
+    "institute": "University of the Witwatersrand",
+    "description": "Awarded to the best third year student in Computational and Applied Mathematics."
+  },
+  {
+    "award_name": "Rose and Irving Saff Mathematics Prize",
+    "award_year": 2014,
+    "institute": "University of the Witwatersrand",
+    "description": "Awarded for outstanding achievement in Mathematics I, II and III"
+  },
+  {
+    "award_name": "Achievement in Computational and Applied Mathematics II",
+    "award_year": 2013,
+    "institute": "University of the Witwatersrand",
+    "description": "Awarded for outstanding achievement in Computational and Applied Mathematics II"
+  },
+  {
+    "award_name": "The Juta Publishers Prize",
+    "award_year": 2012,
+    "institute": "University of the Witwatersrand",
+    "description": "Awarded for being the best Psychology I student."
+  }
+]

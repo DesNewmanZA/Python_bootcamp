@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block title %} Des Newman {% endblock %}
+
+{% block content %}
+
+    <!-- Introduction/About section -->
+    <section id="about" class="container my-5">
+        <div class="row align-items-center">
+            <div class="col-md-4 text-center mb-3 mb-md-0">
+                <img src="{{ url_for('static', filename='images/profile_pic.jpg') }}" class="rounded-circle"
+                    alt="Profile picture Des Newman" width="250" height="250"
+                     style="border: 10px solid var(--bs-primary);">
+                <br>
+                <a class="email-link" href="mailto:despinanewman@gmail.com">Let's get in touch</a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/despina-newman-frm-66a514b9/" target="_blank"
+                       aria-label="LinkedIn"> <i class="fab fa-linkedin fa-3x"></i>
+                    </a>
+                    <a href="https://github.com/DesNewmanZA/" target="_blank"
+                         aria-label="GitHub"> <i class="fab fa-github fa-3x"></i>
+                    </a>
+                    <a href="https://www.instagram.com/despinanewman/" target="_blank">
+                        <i class="fab fa-instagram fa-3x social-icon"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <h1 class="text-custom-primary mb-4"> Hi, I'm Des Newman! </h1>
+
+                <p>
+                    {{ about_text.replace('\n', '<br>') | safe }}
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Experience Section -->
+    <section id="experience" class="bg-light p-5 rounded container my-5">
+        <h2 class="text-custom-secondary mb-4">Experience</h2>
+        {% for experience in experience_hist %}
+            {% set collapse_id = 'collapse' + loop.index|string %}
+            <div class="mb-4">
+                <h4 class="text-custom-tertiary"> {{ experience.role }} ({{ experience.years }}) </h4>
+                <h6> {{ experience.place }} </h6>
+
+                <a class="btn btn-sm btn btn-custom" data-bs-toggle="collapse"
+                   href="#{{ collapse_id }}" role="button" aria-expanded="false" aria-controls="{{ collapse_id }}">
+                        Show roles and responsibilities
+                </a>
+
+                <div class="collapse mt-2" id="{{ collapse_id }}">
+                        {% for line in experience.description.split('\n') %}
+                            <p>{{ line }}</p>
+                        {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="p-5 rounded container my-5">
+        <h2 class="text-custom-secondary mb-4">Education</h2>
+            <ul class="timeline">
+                {% for qualification in education: %}
+                    <li class="timeline-item mb-5">
+                        <h5 class="text-custom-tertiary fw-bold"> {{ qualification.qualification }}</h5>
+                        <h5 class="text-muted"> {{ qualification.institute }},  {{ qualification.year }}</h5>
+                            {% for paragraph in qualification.description.split('\n') %}
+                                <p>{{ paragraph | safe}}</p>
+                            {% endfor %}
+                    </li>
+                {% endfor %}
+            </ul>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bg-light p-5 rounded container my-5">
+        <h2 class="text-custom-secondary mb-4">Skills and expertise areas</h2>
+        <h4 class="text-custom-tertiary mb-4">Languages and technologies</h4>
+        <div class="row g-4">
+        {% for language in languages %}
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card border-0 shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="{{ language.icon }} fa-3x text-custom-primary"></i>
+                        <h5 class="card-title mt-2">{{ language.name }}</h5>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+        <h4 class="text-custom-tertiary mb-4 my-4">Areas of expertise</h4>
+        <ul>
+        {% for area in expertise %}
+            <li> {{ area.description }} </li>
+        {% endfor %}
+        </ul>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="p-5 rounded container my-5 ">
+        <h2 class="text-custom-secondary mb-4">Awards</h2>
+        <div class="row g-4">
+        {% for award in awards: %}
+            <div class="col-12 col-sm-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="text-custom-tertiary"> {{ award.award_name }}</h5>
+                        <h5 class="card-subtitle mb-2 text-muted"> {{ award.institute }},  {{ award.award_year }}</h5>
+                        <p class="card-text">{{ award.description }} </p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section id="interests" class="bg-light p-5 rounded container my-5">
+        <h2 class="text-custom-secondary mb-4">Interests</h2>
+        <div class="row g-4">
+        {% for interest in interests %}
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card border-0 shadow-sm text-center">
+                    <div class="card-body">
+                        <i class="{{ interest.icon }} fa-2x text-custom-primary"></i>
+                        <p class="card-text">{{ interest.name }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    </section>
+
+{% endblock %}

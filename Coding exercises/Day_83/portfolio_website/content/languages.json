@@ -1,0 +1,26 @@
+[
+    {
+      "name": "SAS",
+      "icon": "fas fa-cogs"
+    },
+    {
+      "name": "Python",
+      "icon": "fab fa-python"
+    },
+    {
+      "name": "SQL",
+      "icon": "fas fa-database"
+    },
+    {
+      "name": "HTML",
+      "icon": "fab fa-html5"
+    },
+    {
+      "name": "CSS",
+      "icon": "fab fa-css3-alt"
+    },
+    {
+      "name": "Git",
+      "icon": "fab fa-git"
+    }
+  ]

@@ -74,12 +74,15 @@ def check_if_valid_move(curr_board, row_col):
     :return: a boolean stating whether the move is valid (True) or not.
     """
     if len(row_col) != 2:
+        print("Invalid input. To place your marker, input the row number and column number e.g. 23. \n")
         return False
     elif not (1 <= int(row_col[0]) <= 3 and 1 <= int(row_col[1]) <= 3):
+        print("Invalid input. To place your marker, input the row number and column number e.g. 23. \n")
         return False
     else:
         row, col = int(row_col[0])-1, int(row_col[1])-1
         if curr_board[row][col] != " ":
+            print("That move has already been made. Make a different move.")
             return False
         else:
             return True

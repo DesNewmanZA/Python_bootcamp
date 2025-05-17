@@ -1,5 +1,29 @@
 # Introduction
-This repository stores my notes and coding work for the Udemy course "100 Days of Code: The Complete Python Pro Bootcamp'. Key learning outcomes are summarised below.
+This repository stores my notes and coding exercises and projects for the Udemy course "100 Days of Code: The Complete Python Pro Bootcamp'. 
+
+**Portfolio projects:**
+- [Morse code convertor](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_82)
+- [Portfolio website](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_83)
+- [Tic tac toe](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_84)
+- [Watermarking application](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_85)
+- [Typing speed test](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_86)
+- Breakout game
+- Cafe and wifi website
+- To do list
+- Disappearing text app
+- Converting PDFs to audiobooks
+- Colour palette generator
+- Custom web scraping
+- Google dinosaur game auto-player
+- Space invaders
+- Custom API based website
+- Online shop
+- Custom automation
+- Visualising the space race
+- Analyzing police-related deaths in the USA
+
+# Learning outcomes
+Key learning outcomes are summarised below.
 
 ### Days 1-14 (beginner):
 <details>
@@ -70,22 +94,3 @@ This repository stores my notes and coding work for the Udemy course "100 Days o
 </details>
   
 ### Days 82-100 (portfolio projects)
-- [Morse code convertor](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_82)
-- [Portfolio website](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_83)
-- [Tic tac toe](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_84)
-- [Watermarking application](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_85)
-- [Typing speed test](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_86)
-- Breakout game
-- Cafe and wifi website
-- To do list
-- Disappearing text app
-- Converting PDFs to audiobooks
-- Colour palette generator
-- Custom web scraping
-- Google dinosaur game auto-player
-- Space invaders
-- Custom API based website
-- Online shop
-- Custom automation
-- Visualising the space race
-- Analyzing police-related deaths in the USA

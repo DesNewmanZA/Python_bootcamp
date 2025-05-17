@@ -1,0 +1,4 @@
+Future possible enhancements:
+- Highlighting text to make it clearer to the user which word we are on
+- Highlighting mistakes
+- Pulling a dynamic list of common words to add variety

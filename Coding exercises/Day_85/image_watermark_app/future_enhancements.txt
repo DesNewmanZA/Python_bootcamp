@@ -1,0 +1,4 @@
+If time allows in future, this app can be further improved by the following:
+- Drag and drop placement of watermark
+- Watermark font size selection
+- Restarting from original image each time the watermark button is pressed

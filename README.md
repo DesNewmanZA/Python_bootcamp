@@ -70,11 +70,11 @@ This repository stores my notes and coding work for the Udemy course "100 Days o
 </details>
   
 ### Days 82-100 (portfolio projects)
-- Morse code convertor
-- Portfolio website
-- Tic tac toe
-- Watermarking application
-- Typing speed test
+- [Morse code convertor](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_82)
+- [Portfolio website](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_83)
+- [Tic tac toe](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_84)
+- [Watermarking application](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_85)
+- [Typing speed test](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_86)
 - Breakout game
 - Cafe and wifi website
 - To do list

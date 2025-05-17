@@ -56,3 +56,22 @@ A summary of key learning outcomes:
 - Scikitlearn
   
 ## Days 82-100 (portfolio projects)
+- Morse code convertor
+- Portfolio website
+- Tic tac toe
+- Watermarking application
+- Typing speed test
+- Breakout game
+- Cafe and wifi website
+- To do list
+- Disappearing text app
+- Converting PDFs to audiobooks
+- Colour palette generator
+- Custom web scraping
+- Google dinosaur game auto-player
+- Space invaders
+- Custom API based website
+- Online shop
+- Custom automation
+- Visualising the space race
+- Analyzing police-related deaths in the USA

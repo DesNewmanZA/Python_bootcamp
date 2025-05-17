@@ -1,9 +1,10 @@
 # Introduction
-This repository stores my notes and coding work for the Udemy course "100 Days of Code: The Complete Python Pro Bootcamp'.
+This repository stores my notes and coding work for the Udemy course "100 Days of Code: The Complete Python Pro Bootcamp'. Key learning outcomes are summarised below.
 
-A summary of key learning outcomes:
+### Days 1-14 (beginner):
+<details>
+  <summary>Contents covered</summary>
 
-## Days 1-14 (beginner):
 - Defining variables
 - Understanding and working with different variable types
 - Logical operations and control flow
@@ -12,8 +13,11 @@ A summary of key learning outcomes:
 - Functions
 - Dictionaries
 - Variable scope and debugging.
-
-## Days 15-40 (intermediate):
+</details>
+  
+### Days 15-40 (intermediate):
+<details>
+  <summary>Contents covered</summary>
 - Object-oriented programming
 - Turtle and working with GUIs
 - States
@@ -29,19 +33,28 @@ A summary of key learning outcomes:
 - Sending emails and SMSs
 - Using APIs
 - Environment variables
-
-## Days 41-44 (web foundations):
+</details>
+  
+### Days 41-44 (web foundations):
+<details>
+<summary>Contents covered</summary>
 - HTML
 - CSS
+</details>
 
-## Days 45-58 (intermediate+):
+### Days 45-58 (intermediate+):
+<details>
+  <summary>Contents covered</summary>
 - Webscraping with beautifulsoup
 - Using selenium webdriver
 - Flask for web development
 - Templating with jinja
 - Bootstrap
-
-## Days 59-81 (advanced):
+</details>
+  
+### Days 59-81 (advanced):
+<details>
+  <summary>Contents covered</summary>
 - POST requests
 - Building forms with Flask
 - Databases with SQLlite and SQLalchemy
@@ -54,8 +67,9 @@ A summary of key learning outcomes:
 - Plotly charts
 - Numpy
 - Scikitlearn
+</details>
   
-## Days 82-100 (portfolio projects)
+### Days 82-100 (portfolio projects)
 - Morse code convertor
 - Portfolio website
 - Tic tac toe

@@ -1,5 +1,5 @@
 # Introduction
-This repository stores my notes and coding exercises and projects for the Udemy course "100 Days of Code: The Complete Python Pro Bootcamp'. 
+This repository stores my notes and coding exercises and projects for the Udemy course "_100 Days of Code: The Complete Python Pro Bootcamp_'. 
 
 **Portfolio projects:**
 - [Morse code convertor](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_82)

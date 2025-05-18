@@ -7,7 +7,7 @@ This repository stores my notes and coding exercises and projects for the Udemy 
 - [Tic tac toe](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_84)
 - [Watermarking application](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_85)
 - [Typing speed test](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_86)
-- Breakout game
+- [Breakout game](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_87)
 - Cafe and wifi website
 - To do list
 - Disappearing text app

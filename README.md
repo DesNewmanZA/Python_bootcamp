@@ -21,7 +21,7 @@ This repository stores my notes and coding exercises and projects for the Udemy 
 - Custom automation
 - Visualising the space race
 - Analyzing police-related deaths in the USA
-- 
+  
 # Learning outcomes
 Key learning outcomes are summarised below.
 

@@ -58,9 +58,9 @@ class CafeForm(FlaskForm):
     img_url = URLField('Image URL', validators=[URL()])
     location = StringField('Location', validators=[DataRequired()])
     seats = SelectField('Number of seats',
-                         choices=[('0-10', '0-10'), ('10-20', '10-20'), ('20-30', '20-30'),
-                                  ('30-40', '30-40'), ('40-50', '40-50'), ('50+', '50+')],
-                         validators=[DataRequired()])
+                        choices=[('0-10', '0-10'), ('10-20', '10-20'), ('20-30', '20-30'),
+                                 ('30-40', '30-40'), ('40-50', '40-50'), ('50+', '50+')],
+                        validators=[DataRequired()])
     coffee_price = StringField('Coffee price', validators=[DataRequired()])
     has_sockets = BooleanField('Has sockets?')
     has_toilet = BooleanField('Has toilets?')

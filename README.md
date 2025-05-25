@@ -8,7 +8,7 @@ This repository stores my notes and coding exercises and projects for the Udemy 
 - [Watermarking application](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_85)
 - [Typing speed test](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_86)
 - [Breakout game](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_87)
-- Cafe and wifi website
+- [Cafe and wifi website](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_88)
 - To do list
 - Disappearing text app
 - Converting PDFs to audiobooks
@@ -21,7 +21,7 @@ This repository stores my notes and coding exercises and projects for the Udemy 
 - Custom automation
 - Visualising the space race
 - Analyzing police-related deaths in the USA
-
+- 
 # Learning outcomes
 Key learning outcomes are summarised below.
 

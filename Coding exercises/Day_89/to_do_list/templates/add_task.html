@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <h1 class="text-primary">
+        Let's add a new task
+    </h1>
+</div>
+
+<div class="container">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+
+        <div class="mb-3 col-6">
+            {{ form.name.label }}
+            {{ form.name(class="form-control", placeholder="Enter task title here") }}
+        </div>
+        <div class="mb-3 col-6">
+            {{ form.description.label }}
+            {{ form.description(class="form-control", rows=5, placeholder="Describe the task (optional)") }}
+        </div>
+        <div class="mb-3 col-6">
+            {{ form.due_date.label }}
+            {{ form.due_date(class="form-control") }}
+        </div>
+
+        <button type="submit" class="btn btn-primary">{{ form.submit.label.text }}</button>
+        <a href="{{ url_for('display_home') }}" class="btn btn-secondary ms-2">Cancel</a>
+    </form>
+</div>
+{% endblock %}

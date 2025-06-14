@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}To do list{% endblock %}
+
+{% block content %}
+<!-- Page Heading -->
+<div class="container mt-5 mb-5">
+    <h1 class="text-primary text-center">
+        Let's plan things out
+    </h1>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- Add task button -->
+        <div class="col-2">
+            <a href="{{ url_for('add_task') }}" class="btn btn-primary mb-3">+ Add task</a>
+
+            <!-- Sort by dropdown -->
+            <form method="get" action="{{ url_for('display_home') }}">
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="sort_by">Sort by</label>
+                    <select class="form-select" name="sort_by" id="sort_by" onchange="this.form.submit()">
+                        <option value="due_date" {% if sort_by == 'due_date' %}selected{% endif %}>Due date</option>
+                        <option value="name" {% if sort_by == 'name' %}selected{% endif %}>Name</option>
+                        <option value="completed" {% if sort_by == 'completed' %}selected{% endif %}>Status</option>
+                    </select>
+                </div>
+
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="status_filter">Show  </label>
+                    <select class="form-select" name="status_filter" id="status_filter" onchange="this.form.submit()">
+                        <option value="all" {% if status_filter == 'all' %}selected{% endif %}>All</option>
+                        <option value="completed" {% if status_filter == 'completed' %}selected{% endif %}>Completed</option>
+                        <option value="pending" {% if status_filter == 'pending' %}selected{% endif %}>Pending</option>
+                    </select>
+                </div>
+            </form>
+
+        </div>
+
+
+        <!-- Task cards -->
+        <div class="col-10 pb-5">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                {% for task in tasks %}
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <!-- Card header: checkbox + title + delete -->
+                        <div class="card-header d-flex align-items-center justify-content-between bg-light">
+                            <!-- Complete toggle -->
+                            <form method="POST" action="{{ url_for('toggle_complete', id=task.id) }}">
+                                <input class="form-check-input" type="checkbox" name="completed"
+                                       onchange="this.form.submit()"
+                                       {% if task.completed %}checked{% endif %}>
+                            </form>
+
+                            <!-- Task title -->
+                            <h5 class="mb-0 flex-grow-1 mx-2">
+                                <a href="{{ url_for('edit_task', id=task.id) }}" class="text-decoration-none text-primary">
+                                    {{ task.name }}
+                                </a>
+                            </h5>
+
+                            <!-- Delete button -->
+                            <a href="{{ url_for('delete_task', id=task.id) }}"
+                               class="btn-close"
+                               aria-label="Delete">
+                            </a>
+                        </div>
+
+                        <!-- Card body -->
+                        <div class="card-body">
+                            <p class="card-text">
+                                <small class="text-muted">
+                                    {% if task.due_date %}
+                                        Due date: {{ task.due_date.strftime('%Y-%m-%d') }}<br>
+                                    {% endif %}
+                                    Status:
+                                    {% if task.completed %}
+                                        <span class="badge bg-success">Completed</span>
+                                    {% else %}
+                                        <span class="badge bg-warning text-dark">Pending</span>
+                                    {% endif %}
+                                </small>
+                            </p>
+
+                            <!-- Description -->
+                            {% if task.description %}
+                                <p class="card-text">{{ task.description }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                    <p>No tasks found.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

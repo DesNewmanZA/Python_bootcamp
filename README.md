@@ -20,7 +20,7 @@ This repository stores my notes and coding exercises and projects for the Udemy 
 - Online shop
 - Custom automation
 - [Visualising the space race](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_99)
-- Analyzing police-related deaths in the USA
+- [Analyzing police-related deaths in the USA](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_100)
   
 # Learning outcomes
 Key learning outcomes are summarised below.

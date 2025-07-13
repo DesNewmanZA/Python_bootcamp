@@ -10,7 +10,7 @@ This repository stores my notes and coding exercises and projects for the Udemy 
 - [Breakout game](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_87)
 - [Cafe and wifi website](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_88)
 - [To do list](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_89)
-- Disappearing text app
+- [Disappearing text app](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_90)
 - Converting PDFs to audiobooks
 - Colour palette generator
 - Custom web scraping

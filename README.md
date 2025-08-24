@@ -42,6 +42,7 @@ Key learning outcomes are summarised below.
 ### Days 15-40 (intermediate):
 <details>
   <summary>Contents covered</summary>
+  
 - Object-oriented programming
 - Turtle and working with GUIs
 - States
@@ -62,6 +63,7 @@ Key learning outcomes are summarised below.
 ### Days 41-44 (web foundations):
 <details>
 <summary>Contents covered</summary>
+  
 - HTML
 - CSS
 </details>
@@ -69,6 +71,7 @@ Key learning outcomes are summarised below.
 ### Days 45-58 (intermediate+):
 <details>
   <summary>Contents covered</summary>
+  
 - Webscraping with beautifulsoup
 - Using selenium webdriver
 - Flask for web development
@@ -79,6 +82,7 @@ Key learning outcomes are summarised below.
 ### Days 59-81 (advanced):
 <details>
   <summary>Contents covered</summary>
+  
 - POST requests
 - Building forms with Flask
 - Databases with SQLlite and SQLalchemy

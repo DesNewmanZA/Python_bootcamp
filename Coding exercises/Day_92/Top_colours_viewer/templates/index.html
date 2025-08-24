@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}Colour Extraction{% endblock %}
+
+{% block content %}
+<!-- Page heading -->
+<div class="container-fluid bg-primary text-white py-4 mb-5 shadow">
+    <h1 class="text-center">Colour Extraction Tool</h1>
+</div>
+
+<!-- Description -->
+<div class="container mb-4">
+    <p class="lead text-center">
+        Upload an image to automatically detect its ten most dominant colours and create a palette.
+    </p>
+</div>
+
+<!-- Image box -->
+<div class="container d-flex justify-content-center mb-5">
+    <div class="card-img-top rounded-3 shadow" style="max-width: 600px;">
+        {% if uploaded_filename %}
+            <img src="{{ url_for('static', filename='uploads/' + uploaded_filename) }}"
+                 class="card-img-top rounded-3" alt="Uploaded Image">
+        {% else %}
+            <img src="{{ url_for('static', filename='images/flower.jpg') }}"
+                 class="card-img-top rounded-3" alt="Default Flower">
+        {% endif %}
+    </div>
+</div>
+
+<!-- Top colours table -->
+<div class="container mb-5 d-flex justify-content-center">
+    <div style="max-width: 600px; width: 100%;">
+        <h3 class="text-center mb-3">Top 10 Colours</h3>
+        <table class="table table-bordered text-center align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Preview</th>
+                    <th>RGB value</th>
+                    <th>Hex value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for colour in colours %}
+                <tr>
+                    <!-- Colour swatch -->
+                    <td style="background-color: {{ colour.hex }};
+                               width: 100px; height: 40px;"></td>
+                    <!-- RGB text -->
+                    <td>{{ colour.rgb }}</td>
+                    <!-- Hex text -->
+                    <td>{{ colour.hex }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Upload form -->
+<div class="container mb-5 d-flex justify-content-center">
+    <div style="max-width: 600px; width: 100%;">
+        <p class="lead text-center mb-3">Upload an image:</p>
+        <form method="POST" action="{{ url_for('display_home') }}" enctype="multipart/form-data" class="text-center">
+            <div class="mb-3">
+                <input class="form-control" type="file" name="file" id="file" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-primary">Analyse</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

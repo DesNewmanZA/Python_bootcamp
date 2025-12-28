@@ -13,7 +13,7 @@ This repository stores my notes and coding exercises and projects for the Udemy 
 - [Disappearing text app](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_90)
 - [Converting PDFs to audiobooks](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_91)
 - [Colour palette generator](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_92)
-- Custom web scraping
+- [Custom web scraping](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_93)
 - Google dinosaur game auto-player
 - Space invaders
 - Custom API based website

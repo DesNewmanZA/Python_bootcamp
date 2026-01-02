@@ -18,7 +18,7 @@ This repository stores my notes and coding exercises and projects for the Udemy 
 - [Space invaders](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_95)
 - Custom API based website
 - Online shop
-- Custom automation
+- [Custom automation](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_98)
 - [Visualising the space race](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_99)
 - [Analyzing police-related deaths in the USA](https://github.com/DesNewmanZA/Python_bootcamp/tree/main/Coding%20exercises/Day_100)
   

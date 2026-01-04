@@ -1,6 +1,16 @@
 # Python bootcamp - notes and syntax summary
 
-## Strings
+## Contents
+- [Data types](#data-types)
+    - [Strings](#strings)
+    - [Integers](#integers)
+    - [Floats](#floats)
+    - [Booleans](#booleans)
+    - [Type casting](#type-casting)
+
+## Data types
+
+### Strings
 Strings need to be enclosed by quotes to be properly recognised.
 
     print("This is a valid string.")
@@ -44,12 +54,12 @@ If you want Python to just read text without handling for special cases (for exa
 
 Strings are immutable - that is, we can't edit a string.
 
-# Integers
+### Integers
 These are simply whole numbers without decimals, and are inputted as plain numbers.
 
 Note that you can't concatenate strings and integers without some conversion.
 
-# Floats
+### Floats
 These are numbers with decimals.
 You can make large numbers more readable by adding an underscore.
 
@@ -61,8 +71,28 @@ If we want our float to have a certain number of digits, we can use the format()
 
     "{:.2f}".format(my_num)
 
-# Boolean
+### Booleans
 This is a binary variable, only holding the values True or False. Note the capitalisation.
+
+### Type casting
+Convert a variable to a string:
+
+    str(my_var)
+
+Convert a variable to a float:
+
+    float(my_var)
+
+Convert a variable to an integer:
+
+    int(my_var)
+
+Note that the above just chops off the floating point, no rounding takes place.
+
+If you want to print different types together, we can use an f string.
+
+    print(f"Your score is {score}")
+
 
 ## Inputs
 The function input("your text here") can be used to prompt for input. Note that you can nest functions within one another, such as this input function within a print statement.
@@ -88,24 +118,6 @@ You can check variable types with type()
     type("Hello")
     str
 
-# Type casting
-Convert a variable to a string:
-
-    str(my_var)
-
-Convert a variable to a float:
-
-    float(my_var)
-
-Convert a variable to an integer:
-
-    int(my_var)
-
-Note that the above just chops off the floating point, no rounding takes place.
-
-If you want to print different types together, we can use an f string.
-
-    print(f"Your score is {score}")
 
 # Mathematical operations
 Addition is done with a +:

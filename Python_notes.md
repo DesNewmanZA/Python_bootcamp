@@ -1,12 +1,80 @@
 # Python bootcamp - notes and syntax summary
 
 ## Contents
+- [Style guide](#style-guide)
+- [Variables](#variables)
 - [Data types](#data-types)
     - [Strings](#strings)
     - [Integers](#integers)
     - [Floats](#floats)
     - [Booleans](#booleans)
+    - [Lists](#lists)
+    - [Dictionaries](#dictionaries)
+    - [Tuples](#tuples)
     - [Type casting](#type-casting)
+- [Inputs](#inputs)
+- [Built-in functions](#built-in-functions)
+    - [Modules](#modules)
+- [Mathematical operations](#mathematical-operations)
+    - [Randomisation](#randomisation)
+- [Control of flow](#control-of-flow)
+    - [If else statements](#if-else-statements)
+    - [For loops](#for-loops)
+    - [While loops](#while-loops)
+- [Functions](#functions)
+    - [Docstrings](#docstrings)
+    - [Scope](#scope)
+    - [Advanced python arguments](#advanced-python-arguments)
+- [Classes and objects](#classes-and-objects)
+- [Working with files](#working-with-files)
+- [Working with data](#working-with-data)
+- [Working with JSON](#working-with-json)
+- [GUIs and TKinter](#guis-and-tkinter)
+- [Exception handling](#exception-handling)
+- [Application Programming Interfaces (APIs)](#application-programming-interfaces-apis)
+- [Environment variables](#environment-variables)
+- [Random other information](#random-other-information)
+    - [Event listeners](#event-listeners)
+    - [Higher order functions](#higher-order-functions)
+    - [List and dictionary comprehension](#list-and-dictionary-comprehension)
+    - [Emailing with python](#emailing-with-python)
+    - [Working with dates and time](#working-with-dates-and-time)
+    - [Cloud hosting](#cloud-hosting)
+- [Web development intro](#web-development-intro)
+    - [HTML](#HTML)
+    - [CSS](#CSS)
+- [Web scraping](#web-scraping)
+    - [Web scraping with beautiful soup - basic](#web-scraping-with-beautiful-soup---basic)
+    - [Web scraping with selenium - advanced](#selenium-webdriver---advanced)
+- [Web development - back-end](#web-development---back-end)
+    - [Flask](#flask)
+    - [Jinja](#jinja)
+    - [Data storage using SQL](#data-storage-using-sql)
+    - [Authentication](#authentication)
+- [Web development - front-end](#web-development---front-end)
+    - [Bootstrap framework](#bootstrap-framework)
+    - [Building beautiful websites - an overview of web design](#building-beautiful-websites---an-overview-of-web-design)
+- [Web deployment](#web-deployment)
+- [REST APIs](#rest-apis)
+- [GIT](#git)
+- [Data science](#data-science)
+    - [Data manipulation](#data-manipulation)
+    - [Data visualisation](#data-visualisation)
+    - [Filtering, merging and aggregating data](#filtering-merging-aggregating-data)
+    - [Computation with numpy](#computation-with-numpy)
+    - [Relationships in data](#relationships-in-data)
+
+## Style guide
+It's best practice to follow the recommended style for your code. This can be found here:
+https://peps.python.org/pep-0008/
+
+## Variables
+Variables are assigned with an equals sign. This allows us to store values for later referencing and use.
+
+    name = input("What is your name? ")
+    print(name)
+
+When naming variables, ensure that they are easily readable. Spaces are not allowed, but an underscore is typically used in their place. Variable names are case sensitive. 
 
 ## Data types
 
@@ -74,6 +142,59 @@ If we want our float to have a certain number of digits, we can use the format()
 ### Booleans
 This is a binary variable, only holding the values True or False. Note the capitalisation.
 
+### Lists
+Lists are a data structure, used to organise data in Python that is part of the same collection. They can contain any types of data together. Their syntax is as follows:
+
+    my_list = [item 1, item 2, ..., item n]
+
+These items do have an order and this can be useful too. You can index them as you do strings.
+
+You can adjust items in a list:
+
+    my_list[1] = "my adjustment"
+
+If you want to add an item to an end of a list:
+
+    my_list.append("New item")
+
+You can add on another list using extend:
+
+    my_list.extend([item1, item2])
+
+Lists are mutable - we can change what is stored in them. Note that if we assign a list into a new variable without making a copy, any operations done on the new variable will affect the old variable too. The safest thing is to make a copy:
+
+    new_list = my_list.copy()
+
+You can make nested lists to link related data together. To access sub-lists, we just add more indexing brackets:
+
+    nested_list[1][3]
+
+We can index items in a list (called list slicing using a colon). Note that the last element is not inclusive if it is specified. These indeces can be negative eg. -1 gets the last element of the list. You can add a 2nd colon to add the jump size.
+
+### Dictionaries
+Dictionaries store keys that we can use to look up things, and then an associated value with some information stored about the key. Syntax:
+
+    dictionary = {key : value, key2 : value2}
+
+Typical formatting is leaving the { on the line where it is defined, each entry on a new line with a tab, and the } in line with the definition.
+
+To fetch items from a dictionary:
+
+    my_dict[key]
+
+If we add new items or edit an existing item:
+
+    my_dict[key] = value
+
+Looping through a dictionary with a for loop will only give you the key. So if you want the value, you would loop using that key. Note that values can be anything - even lists and other dictionaries.
+
+### Tuples
+These are denoted as follows:
+
+    my_tuple = (val1, val2, ..., valn)
+
+These are immutable. That is, they can't be changed. These are important for storing data you are sure must not be changed.
+
 ### Type casting
 Convert a variable to a string:
 
@@ -93,21 +214,12 @@ If you want to print different types together, we can use an f string.
 
     print(f"Your score is {score}")
 
-
 ## Inputs
 The function input("your text here") can be used to prompt for input. Note that you can nest functions within one another, such as this input function within a print statement.
 
     print("Hello "+input("What is your name? ")+"!")
 
-# Variables
-Variables are assigned with an equals sign. This allows us to store values for later referencing and use.
-
-    name = input("What is your name? ")
-    print(name)
-
-When naming variables, ensure that they are easily readable. Spaces are not allowed, but an underscore is typically used in their place. Variable names are case sensitive. 
-
-# Built-in functions
+## Built-in functions
 You can get the number of characters in a string using len('your string'). It can't be used on numeric data types.
 
     length = len(name)
@@ -118,8 +230,32 @@ You can check variable types with type()
     type("Hello")
     str
 
+### Modules
+We don't always need to keep everything in the same script to be able to access it. The random library mentioned above is an example of this - this is called a module. You can import modules and access functions and variable definitions from it.
 
-# Mathematical operations
+For example, if you have a script saved called my_module that stores the value of pi in a variable named pi, we can access it as follows:
+
+    import my_module
+    print(my_module.pi)
+
+You can give a module an alias to refer to it quicker:
+
+    import module as md
+
+This will allow us to access things from the module as follows:
+
+    md.method_name()
+
+### Installing packages
+You can install other packages by going to the python command prompt and typing:
+
+    pip install package_name
+
+A list of available packages can be found here:
+
+    https://pypi.org/
+
+## Mathematical operations
 Addition is done with a +:
 
     print(3 + 2)
@@ -169,26 +305,7 @@ This can be used with the other operators as well.
 
 The modulus function is denoted by %, giving the remainder after division.
 
-# If else statements
-The syntax is as follows:
-
-    if condition 1 is true:
-        do action 1
-    elif condition 2 is true:
-        do action 2
-    else:
-        do action 3
-
-Note the indentation used here (4 spaces or one tab - spaces are preferred)! The computer will test condition 1 first, and if it is false, it moves onto the next condition to test until all options are spent. We can nest multiple if/else statements within each other, being mindful of indentation.
-
-We can use </>/<=/>= operators to compare numeric variables. We can also test for equality using == or non-equality using != within our conditions.
-
-We can combine multiple conditions in a single statement using and, or and not:
-- And requires each condition is true to be executed. 
-- Or requires only a single condition to be true to be executed
-- Not inverts the condition
-
-# Randomisation
+### Randomisation
 There is a library in Python that can assist us in generating random numbers. We can bring it into our code as follows:
 
     import random
@@ -211,52 +328,28 @@ We can shuffle a list randomly and in place as follows:
 
     random.shuffle(my_list)
 
-# Modules
-We don't always need to keep everything in the same script to be able to access it. The random library mentioned above is an example of this - this is called a module. You can import modules and access functions and variable definitions from it.
+## Control of flow
 
-For example, if you have a script saved called my_module that stores the value of pi in a variable named pi, we can access it as follows:
+### If else statements
+The syntax is as follows:
 
-    import my_module
-    print(my_module.pi)
+    if condition 1 is true:
+        do action 1
+    elif condition 2 is true:
+        do action 2
+    else:
+        do action 3
 
-You can give a module an alias to refer to it quicker:
+Note the indentation used here (4 spaces or one tab - spaces are preferred)! The computer will test condition 1 first, and if it is false, it moves onto the next condition to test until all options are spent. We can nest multiple if/else statements within each other, being mindful of indentation.
 
-    import module as md
+We can use </>/<=/>= operators to compare numeric variables. We can also test for equality using == or non-equality using != within our conditions.
 
-This will allow us to access things from the module as follows:
+We can combine multiple conditions in a single statement using and, or and not:
+- And requires each condition is true to be executed. 
+- Or requires only a single condition to be true to be executed
+- Not inverts the condition
 
-    md.method_name()
-
-# Lists
-Lists are a data structure, used to organise data in Python that is part of the same collection. They can contain any types of data together. Their syntax is as follows:
-
-    my_list = [item 1, item 2, ..., item n]
-
-These items do have an order and this can be useful too. You can index them as you do strings.
-
-You can adjust items in a list:
-
-    my_list[1] = "my adjustment"
-
-If you want to add an item to an end of a list:
-
-    my_list.append("New item")
-
-You can add on another list using extend:
-
-    my_list.extend([item1, item2])
-
-Lists are mutable - we can change what is stored in them. Note that if we assign a list into a new variable without making a copy, any operations done on the new variable will affect the old variable too. The safest thing is to make a copy:
-
-    new_list = my_list.copy()
-
-You can make nested lists to link related data together. To access sub-lists, we just add more indexing brackets:
-
-    nested_list[1][3]
-
-We can index items in a list (called list slicing using a colon). Note that the last element is not inclusive if it is specified. These indeces can be negative eg. -1 gets the last element of the list. You can add a 2nd colon to add the jump size.
-
-# For loops
+### For loops
 Used to repeat something a predetermined number of times. 
 
 To use for loops with a list:
@@ -271,7 +364,13 @@ To use for loops without a list, the range function is very useful to determine 
 
 Note that the start point a is included but not the end point b.
 
-# Functions
+### While loops
+These are best used to loop when we don't have a predetermined number of times to loop for upfront, and are rather looking for a condition to be satisfied. Syntax:
+
+    while condition is true:
+        do action
+
+## Functions
 There are plenty of built-in functions. A good reference is here:
 https://docs.python.org/3/library/functions.html
 
@@ -308,34 +407,7 @@ If we want, we can define input and output types:
 
     def my_function(var1: int) -> bool
 
-# Style guide
-It's best practice to follow the recommended style for your code. This can be found here:
-https://peps.python.org/pep-0008/
-
-# While loops
-These are best used to loop when we don't have a predetermined number of times to loop for upfront, and are rather looking for a condition to be satisfied. Syntax:
-
-    while condition is true:
-        do action
-
-# Dictionaries
-Dictionaries store keys that we can use to look up things, and then an associated value with some information stored about the key. Syntax:
-
-    dictionary = {key : value, key2 : value2}
-
-Typical formatting is leaving the { on the line where it is defined, each entry on a new line with a tab, and the } in line with the definition.
-
-To fetch items from a dictionary:
-
-    my_dict[key]
-
-If we add new items or edit an existing item:
-
-    my_dict[key] = value
-
-Looping through a dictionary with a for loop will only give you the key. So if you want the value, you would loop using that key. Note that values can be anything - even lists and other dictionaries.
-
-# Docstrings
+### Docstrings
 These allow us to add documentation in our functions to help explain what we are doing.
 
 These go right after the function definition and they are defined by 3 quotation marks:
@@ -346,7 +418,7 @@ These go right after the function definition and they are defined by 3 quotation
         actions
         return output
 
-# Scope
+### Scope
 If we want to modify a global variable inside a function without explicitly passing it in as an input, something like the following can be done:
 
     my_var = 1
@@ -361,7 +433,30 @@ Global constants are useful for anything that shouldn't change. The convention f
 
     PI = 3.14
 
-# Classes and objects
+### Advanced python arguments
+We can initialise functions with default values. That way, if these are not explictly defined/passed on a function call, the default values will be used:
+
+    def my_funct(a=1, b=3, c=6):
+        code
+
+We can also create functions that can take an unlimited number of arguments (*args). For example, if we want to write a simple program that sums up an unlimited amount of inputted numbers. This can be done via *args as it takes the inputs in and converts them into a tuple:
+
+    def add(*args):
+        sum = 0
+        for n in args:
+            sum += int(n)
+        return sum
+
+We can also deal with an unlimited amount of keyword arguments (**kwargs).  These become a dictionary. 
+
+    def calculate(**kwargs):
+        kwargs[key] = value
+        code
+
+The problem with the above is it will throw an error if the key doesn't exist. And so, it is better to use the get function instead.
+
+
+## Classes and objects
 Objects can be thought of in terms of what they have (attributes - the variables attached to it) and what they do (their methods they perform). Classes hold a template of what objects have and do, and instances of them are called objects. Classes usually have each word's first letter capitalised.
 
 When an object is defined, we can call the object's attributes as follows:
@@ -403,29 +498,7 @@ Classes have inheritance of both attributes and methods from other classes. An e
             super().my_method()
             # Add extra functionality for the subclass 
 
-# Installing packages
-You can install other packages by going to the python command prompt and typing:
-
-    pip install package_name
-
-A list of available packages can be found here:
-
-    https://pypi.org/
-
-# Tuples
-These are denoted as follows:
-
-    my_tuple = (val1, val2, ..., valn)
-
-These are immutable. That is, they can't be changed. These are important for storing data you are sure must not be changed.
-
-# Event listeners
-An event listener is a function or method that detects and responds to events within a program or application. When attached to an object or element, the listener waits for a specific event to occur, such as a button click, mouse movement, or keyboard input.
-
-# Higher order functions
-These are functions that work with other functions. Note that if a function is passed to a higher order function as an argument, it doesn't require the brackets passed too.
-
-# Working with files
+## Working with files
 We can open a file using Python - we first need to open the file and then read in the contents, and then close it when we are done with it. The default way to open a file is read-only (mode = 'r').
 
     my_file = open('my_file.txt')
@@ -455,7 +528,7 @@ To go into folders further nested within, we start with a '.' and specify the ne
 
 If you want to go up multiple folders, we repeat the ../ as many times as needed.
 
-# Working with data
+## Working with data
 Python has a library for dealing with csv files, with an associated reader. This stores each row in the data as a list.
 
     import csv
@@ -489,25 +562,42 @@ We can output data frames as a csv:
 
     my_df.to_csv('csv_name.csv')
 
-# List and dictionary comprehension
-This can be used to create new lists without a for loop. An example of this is:
+## Working with JSON
+This stands for JavaScript Object Notation and is a standardised way of transmitting text data. It can look a bit like a dictionary:
 
-    my_list = [new_item_rule for item in list if condition]
+    {
+    "employees":[
+        {"firstName":"John", "lastName":"Doe"},
+        {"firstName":"Anna", "lastName":"Smith"},
+        {"firstName":"Peter", "lastName":"Jones"}
+    ]
+    }
 
-This can be used with any iterable data type.
+To write to a JSON, we use json.dump():
 
-    my_dict = {new_key:new_item for item in list if test}
+    import json
+    json.dump(dictionary, my_file, indent=nums)
 
-or 
+To read data from a JSON:
 
-    my_dict = {new_key:new_item for (key,item) in dict.items() if test}
+    import json
+    json.dump(my_file)
 
-You can also loop through a data frame in a similar way to dictionaries. But you can also iterate over the rows:
+If we want to add to a JSON:
 
-    for (index, row) in my_df.iterrows:
-        conditions
+    import json
+    json.update()
 
-# GUIs and Tkinter
+General format for taking an existing JSON and updating it:
+
+    import json
+    with open('my_file.json', mode='r') as my_file:
+        my_data = json.load(my_file)
+        my_data.update(new_data)
+    with open('my_file.json', mode='w') as my_file:
+        json.dump(my_data, my_file, indent=4)
+
+## GUIs and Tkinter
 Tkinter allows us to make GUIs. It's a module you need to import - to make a window, we would initialize it and keep 'listening' for user input until a certain condition is met (done via mainloop).
 
     import tkinter
@@ -605,29 +695,7 @@ We can also make pop-up message boxes:
     messagebox.showinfo(title='title', message='message')
     messagebox.askokcancel(title='title', message='message')
 
-# Advanced python arguments
-We can initialise functions with default values. That way, if these are not explictly defined/passed on a function call, the default values will be used:
-
-    def my_funct(a=1, b=3, c=6):
-        code
-
-We can also create functions that can take an unlimited number of arguments (*args). For example, if we want to write a simple program that sums up an unlimited amount of inputted numbers. This can be done via *args as it takes the inputs in and converts them into a tuple:
-
-    def add(*args):
-        sum = 0
-        for n in args:
-            sum += int(n)
-        return sum
-
-We can also deal with an unlimited amount of keyword arguments (**kwargs).  These become a dictionary. 
-
-    def calculate(**kwargs):
-        kwargs[key] = value
-        code
-
-The problem with the above is it will throw an error if the key doesn't exist. And so, it is better to use the get function instead.
-
-# Exception handling
+## Exception handling
 Key errors are when we look for something in a dictionary that doesn't exist. Index errors are when we look at an index that doesn't exist. A type error is when we try do an operation on something that can't be done on the data type. We can try plan for and handle these cases.
 
     try:
@@ -661,79 +729,7 @@ We can also raise our own exceptions:
 
 This can be useful for validating inputs eg. ValueError
 
-# JSON files
-This stands for JavaScript Object Notation and is a standardised way of transmitting text data. It can look a bit like a dictionary:
-
-    {
-    "employees":[
-        {"firstName":"John", "lastName":"Doe"},
-        {"firstName":"Anna", "lastName":"Smith"},
-        {"firstName":"Peter", "lastName":"Jones"}
-    ]
-    }
-
-To write to a JSON, we use json.dump():
-
-    import json
-    json.dump(dictionary, my_file, indent=nums)
-
-To read data from a JSON:
-
-    import json
-    json.dump(my_file)
-
-If we want to add to a JSON:
-
-    import json
-    json.update()
-
-General format for taking an existing JSON and updating it:
-
-    import json
-    with open('my_file.json', mode='r') as my_file:
-        my_data = json.load(my_file)
-        my_data.update(new_data)
-    with open('my_file.json', mode='w') as my_file:
-        json.dump(my_data, my_file, indent=4)
-
-# Emailing with Python
-SMTP = Simple Mail Transfer Protocol. Used to send and receive messages. We use smtplib and start tls which allows us to secure a connection to the server.
-
-    import smtplib
-    connection = smtplib.SMTP(smtpserver)
-    connection.starttls()
-    connection.login(user='emailaddress', password='password')
-    connection.sendemail(from_add='email', to_addrs='email', msg='Subject:text\n\nContents of email.')
-    connection.close()
-
-This requires an app password in Gmail.
-
-# Working with dates and time
-You can use datetime to get current dates as well as deal with dates. To get the current date and time:
-
-    import datetime as dt
-    dt.datetime.now()
-
-You may want to break this apart eg. get the year.
-
-    dt.datetime.now().year()
-
-To make a new date, the following can be done:
-
-    dt.datetime(year=, month=, day=, optional time inputs)
-
-# Cloud hosting
-If we want an application to be continuously running and checking,we can host it in the cloud and get it to execute periodically. A good option for this is:
-
-    https://www.pythonanywhere.com/
-
-We can upload the scripts we want to execute. Then we will start a new bash session. If the script is called main.py,
-
-    python3 main.py
-
-This will test if it is working fine. We can then schedule it accordingly, specifying a time and giving the command that must be run.
-
-# Application Programming Interfaces (APIs)
+## Application Programming Interfaces (APIs)
 These define how information is communicated between two different applications. You will use the rules from an API to pull data with the appropriate structured response. 
 
 You need to know the API endpoint (eg. location of the data). You also need to make a request over the interest to do this - it has checks and balances in place.
@@ -779,7 +775,7 @@ There are other types of requests other than just getting data. The 4 main types
     import requests
     response = request.post(url='myurl', json='myparams')
 
-# Environment variables
+## Environment variables
 If we go into the terminal and type env, we will get a list of information about the running environment we are using. We can set variables at an environment level rather than adjusting our code which is convenient, and it's also good for security when uploading code. We can save these variables as follows in the terminal:
 
     export var_name=content; export var_name2=content2
@@ -789,13 +785,77 @@ If you retype env, you will see that environment saved. To use these:
     import os
     content = os.environ.get("my_var")
 
-# Web development
+## Random other information
+
+### Event listeners
+An event listener is a function or method that detects and responds to events within a program or application. When attached to an object or element, the listener waits for a specific event to occur, such as a button click, mouse movement, or keyboard input.
+
+### Higher order functions
+These are functions that work with other functions. Note that if a function is passed to a higher order function as an argument, it doesn't require the brackets passed too.
+
+### List and dictionary comprehension
+This can be used to create new lists without a for loop. An example of this is:
+
+    my_list = [new_item_rule for item in list if condition]
+
+This can be used with any iterable data type.
+
+    my_dict = {new_key:new_item for item in list if test}
+
+or 
+
+    my_dict = {new_key:new_item for (key,item) in dict.items() if test}
+
+You can also loop through a data frame in a similar way to dictionaries. But you can also iterate over the rows:
+
+    for (index, row) in my_df.iterrows:
+        conditions
+
+### Emailing with Python
+SMTP = Simple Mail Transfer Protocol. Used to send and receive messages. We use smtplib and start tls which allows us to secure a connection to the server.
+
+    import smtplib
+    connection = smtplib.SMTP(smtpserver)
+    connection.starttls()
+    connection.login(user='emailaddress', password='password')
+    connection.sendemail(from_add='email', to_addrs='email', msg='Subject:text\n\nContents of email.')
+    connection.close()
+
+This requires an app password in Gmail.
+
+### Working with dates and time
+You can use datetime to get current dates as well as deal with dates. To get the current date and time:
+
+    import datetime as dt
+    dt.datetime.now()
+
+You may want to break this apart eg. get the year.
+
+    dt.datetime.now().year()
+
+To make a new date, the following can be done:
+
+    dt.datetime(year=, month=, day=, optional time inputs)
+
+### Cloud hosting
+If we want an application to be continuously running and checking,we can host it in the cloud and get it to execute periodically. A good option for this is:
+
+    https://www.pythonanywhere.com/
+
+We can upload the scripts we want to execute. Then we will start a new bash session. If the script is called main.py,
+
+    python3 main.py
+
+This will test if it is working fine. We can then schedule it accordingly, specifying a time and giving the command that must be run.
+
+
+## Web development intro
 Websites consist of HTML, CSS and Javascript files for the most part. Each do a different job:
 - HTML gives the structure of the website/layout
 - CSS files are responsible for styling the website
 - Javascript allows the website to actually do useful things.
 
-## HTML
+### HTML
 HTML stands for Hyper Text Markup Language. It links together pieces of information and helps structure the information accordingly with tags (eg. bold, italic, headings etc). Tags define the structure and take the form:
 
     <tag> content </tag>
@@ -848,7 +908,7 @@ We can do breaks as follows:
 
     <br/>
 
-# CSS
+### CSS
 This stands for Cascading Style Sheets and is used to make websites look beautiful. It informs the HTML what styling to use. A good reference is here: https://www.w3schools.com/cssref/index.php.
 
 There are 3 methods of inclusion:
@@ -945,7 +1005,8 @@ We make boxes around our elements via content division tags.
 
     < div > content < /div>
 
-# Web scraping with beautiful soup
+## Web scraping
+### Web scraping with beautiful soup - basic
 Web scraping allows us to take data from a website by extracting it from the HTML file. This is done with a library called Beautiful Soup (documentation: https://www.crummy.com/software/BeautifulSoup/bs4/doc/).
 
 An example of use:
@@ -973,7 +1034,7 @@ We can also search by class, id etc. rather than just name.
 
 If we take the soup and use .prettify(), this will indent the soup for easier reading.
 
-# Selenium webdriver - advanced web scraping
+### Web scraping with Selenium - advanced 
 This package can scroll, click and everything else that a human can do, making it much more powerful than Beautiful Soup.
 
     from selenium import webdriver
@@ -1008,11 +1069,10 @@ We can also find a given input box and then input text as follows:
     from selenium.webdriver.common.keys import Keys
     element.send_keys("My text", Keys.ENTER)
 
-# Web development - backend
+## Web development - back-end
 The frontend of a website is just what displays to the user, but to have good functionality, we need backend. The three key components to the backend are the client, the server and the database. 
 
-
-## Flask
+### Flask
 Flask is a common framework for web development in Python and provides a standardised way to deploy web apps. A framework is code that dictates the architecture of the project at hand - it is not like a library where we pick and choose when to call it. Rather, the framework calls your code so you have to cater for all possible cases. It has to be used from the start of a project. 
 
 The environment needs to first be set up via the terminal:
@@ -1110,7 +1170,7 @@ On the HTML side, the form has to look something like this:
     </form>
 
 
-## Jinja 
+### Jinja 
 This allows us to use templating for when we want to create multiple pages but without necessarily redoing all the HTML etc. A good example is a blog where each post has its own page but all blog posts look the same, the only difference is the content.
 
 If we add two {{}} around anything within our HTML, this will then be evaluated as a python expression. This is part of Jinja markup. More complex code would live in the python script and sent to the HTML. We can do this with render_template:
@@ -1133,36 +1193,7 @@ We can also include other HTML files:
 
     {% include "sample.html" %}
 
-# Web development - front-end
-
-## Bootstrap framework
-This is a CSS framework. It contains pre-made CSS files that can be included into projects. It has a 12 column layout system, and gives great looking responsive websites by just adding a few classes, with good compatability.
-
-We can use the link tag in the HTML head section to use it via the Content Delivery Network (CDN) urls:
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-We can then reference the classes (eg. btn btn-primary) when defining tags to make use of the styling. 
-
-The bootstrap system works with an outer container (first set of div), the rows (second set of div) and the columns (third set of div). This looks like:
-
-    <div class="container">
-        <div class="row">
-            <div class="col"> Hello </div>
-        </div>
-    </div>
-
-Bootstrap tries to give every column equal spacing within the container. If we want to predefine how many of the 12 columns are used, we can use col-number. Eg. col-6 is 50% of the columns. 
-
-A useful guide to the components:
-
-    https://getbootstrap.com/docs/5.3/components/
-
-You can also include Bootstrap directly using the bootstrap-flask package.
-
-## Data storage using SQL
+### Data storage using SQL
 Data can be stored for website continuity. This can be done as follows:
 
     import sqlite3
@@ -1206,7 +1237,7 @@ The above is using SQL more directly; however, SQLAlchemy can be used to script 
 
 The main operations can be done as follows:
 
-### Create new record:
+#### Create new record:
 The primary key will be auto-generated.
 
     with app.app_context():
@@ -1215,39 +1246,73 @@ The primary key will be auto-generated.
         db.session.add(new_row)
         db.session.commit()
 
-### Read all records: 
+#### Read all records: 
 
     with app.app_context():
         result = db.session.execute(db.select(Row).order_by(Row.title))
         all_rows = result.scalars()
 
-### Read a single record
+#### Read a single record
 
     with app.app_context():
         book = db.session.execute(db.select(Row).where(Row.title == "condition")).scalar()
 
-### Update a particular record by query
+#### Update a particular record by query
 
     with app.app_context():
         row_to_update = db.session.execute(db.select(Row).where(Row.title == "condition")).scalar()
         row_to_update.title = "New value"
         db.session.commit() 
 
-### Update a particular record by ID
+#### Update a particular record by ID
 
     with app.app_context():
         row_to_update = db.session.execute(db.select(Row).where(Row.id == book_id)).scalar()
         row_to_update.title = "New condition"
         db.session.commit()  
 
-### Delete record by primary key
+#### Delete record by primary key
 
     with app.app_context():
         row_to_delete = db.session.execute(db.select(Row).where(Row.id == book_id)).scalar()
         db.session.delete(row_to_delete)
         db.session.commit()
 
-## Building beautiful websites - an overview of web design
+### Authentication
+We can make a form to get user details and store that in a database but that is not very secure. We can increase this authentication security by adding encryption with a hash function. Passwords must never be passed in plain text. Additional security can be added with password salting. This is where random characters are also added alongside prior to hashing and combined with the password to combat how people tend to make weak passwords. 
+
+The code needed for this is quite complex and convoluted. The Day 68 project has good example of creating a login page with authentication, password hashing, checking if a user is logged in and providing continuity.
+
+## Web development - front-end
+
+### Bootstrap framework
+This is a CSS framework. It contains pre-made CSS files that can be included into projects. It has a 12 column layout system, and gives great looking responsive websites by just adding a few classes, with good compatability.
+
+We can use the link tag in the HTML head section to use it via the Content Delivery Network (CDN) urls:
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+We can then reference the classes (eg. btn btn-primary) when defining tags to make use of the styling. 
+
+The bootstrap system works with an outer container (first set of div), the rows (second set of div) and the columns (third set of div). This looks like:
+
+    <div class="container">
+        <div class="row">
+            <div class="col"> Hello </div>
+        </div>
+    </div>
+
+Bootstrap tries to give every column equal spacing within the container. If we want to predefine how many of the 12 columns are used, we can use col-number. Eg. col-6 is 50% of the columns. 
+
+A useful guide to the components:
+
+    https://getbootstrap.com/docs/5.3/components/
+
+You can also include Bootstrap directly using the bootstrap-flask package.
+
+### Building beautiful websites - an overview of web design
 
 ### Colour theory
 The colours selected must match the mood of the site as it conveys a message. Colour schemes can be analogous (where they pick colours close together on the colour wheel) creating a harmonious look (and so is good for navigation bars etc) or complementary (colours opposite on the colour wheel) to create a pop - this is typically not a good idea for text. There is also triadic colour schemes, that make a triangle on the colour wheel or squares. A good website to use to view these is the following:
@@ -1258,20 +1323,33 @@ Curated colour palettes:
 
     https://colorhunt.co/
 
-### Typography
+#### Typography
 Fonts also convey a message. There are serif fonts (with tails at the end of the lettering) and san serif fonts (without these tails). Serif fonts look more serious, authoratative, older; san serif fonts look more approachable, novel and contemporary. Typically, it is a good idea to stick to two fonts or so to keep a design looking clean. 
 
-### User interface
+#### User interface
 Our eyes are naturally drawn to things in a certain order. We can exploit the hierarchy of how we view things to make things clearer and better designed - this can be done with colour by constrasting, size to pull attention, and layout. You can create more interest with layout by adding blocks of text that are just the right size - blocks that are too long feel too tedious to read but short ones can feel choppy and awkward. Alignment is also an important part to make things feel coherent and designed. Minimizing alignment points looks a lot more professional. White space is also key to highlight things. It is important to design with your audience in mind - be sure to select design elements that will be consistent with the audience you are designing for.
 
-### User experience (UX)
+#### User experience (UX)
 We may design things but people won't necessarily interact with them the way that was intended. Making things more natural to how people interact and experience things adds for a better design. Good UX makes everything feel easy and effortless. The principles for a good UX are simplicity, consistency, reading patterns (people often look at an F or Z pattern in text), all platform design, honest design (not tricking the user into an action that is not beneficial for them).
 
 Some designs that can provide inspiration or provoke thought:
 
     https://collectui.com/
 
-# Building a REST API
+## Web deployment
+We need to be certain that all critical information is stored securely, like environment variables etc.
+
+When we want to deploy into production, we need to use a Web Server Gateway Interface (WSGI). This is because normal web servers can't run python so WSGI servers standardise things between the Python Flask app and the server. Gunicorn is a popular one to run the code.
+
+We then need to tell the hosting provider about the gunicorn server, app name, and how to run our Flask app via a Procfile, with the following:
+
+    web: gunicorn main:app
+
+There are many different hosting providers (render, pythonanywhere, vercel). In Render, click on "web services", and starting command "gunicorn main:app".
+
+These websites need a different type of database rather than SQLite. This is because this is a file-based database - this is good for debugging, but once deployed, the file locations are shifted around and can get wiped as a result as it has no network interface. The answer to this is PosgreSQL that answers for these shortcomings. These can be set up via Render. They are flexible and do not require pre-definition other than a database name.
+
+## REST APIs
 REST = representational state transfer. It is an architectural style for APIs, considered the gold standard for web APIs.
 
 We need to use HTTP request verbs (GET/POST/PUT/PATCH/DELETE) and use a specific pattern of routes/endpoint URLs. GET and DELETE can be used on all items or a specific item. POST is used to create one new item. PUT and PATCH are used for modifying a specific item. It is good practice to also return HTTP codes (see https://www.webfx.com/web-development/glossary/http-status-codes/).
@@ -1349,12 +1427,7 @@ An example of DELETE:
 
 Note that the postman app can be used for API testing and documentation.
 
-# Authentication
-We can make a form to get user details and store that in a database but that is not very secure. We can increase this authentication security by adding encryption with a hash function. Passwords must never be passed in plain text. Additional security can be added with password salting. This is where random characters are also added alongside prior to hashing and combined with the password to combat how people tend to make weak passwords. 
-
-The code needed for this is quite complex and convoluted. The Day 68 project has good example of creating a login page with authentication, password hashing, checking if a user is logged in and providing continuity.
-
-# Git
+## Git
 Git allows us to do version control on our codes. Repositories can be made where code is stored and Git can assist with the versioning of these files. When saving code versions, the first step is staging which allows us to pick which files are going to be saved. When we are ready to save this version, we will commit the files alongside a commit message. This message should be meaningful and describe what was done. These messages tend to be written in the present tense.
 
 Git allows the differences between versions to be tracked. If we want to go back to a prior file version, there is functionality to revert.
@@ -1373,22 +1446,10 @@ A good website to learn how to use Git in greater detail:
 
     https://learngitbranching.js.org/
 
-# Web deployment
-We need to be certain that all critical information is stored securely, like environment variables etc.
 
-When we want to deploy into production, we need to use a Web Server Gateway Interface (WSGI). This is because normal web servers can't run python so WSGI servers standardise things between the Python Flask app and the server. Gunicorn is a popular one to run the code.
+## Data science
 
-We then need to tell the hosting provider about the gunicorn server, app name, and how to run our Flask app via a Procfile, with the following:
-
-    web: gunicorn main:app
-
-There are many different hosting providers (render, pythonanywhere, vercel). In Render, click on "web services", and starting command "gunicorn main:app".
-
-These websites need a different type of database rather than SQLite. This is because this is a file-based database - this is good for debugging, but once deployed, the file locations are shifted around and can get wiped as a result as it has no network interface. The answer to this is PosgreSQL that answers for these shortcomings. These can be set up via Render. They are flexible and do not require pre-definition other than a database name.
-
-# Data science
-
-## Data manipulation
+### Data manipulation
 Pandas is the key to exploring data in Python. To read in a CSV:
 
     import pandas as pd
@@ -1472,7 +1533,7 @@ If we have various data of different time stamps (eg. some monthly, some daily),
 
 This will resample to monthly, using the last snapshot per month.
 
-## Data visualisation
+### Data visualisation
 Matplotlib can be used to create charts to visualise data. 
 
     import matplotlib.pyplot as plt
@@ -1508,7 +1569,7 @@ As well as seaborn:
 
     import seaborn as sns
  
-## Filtering, merging, aggregating data
+### Filtering, merging, aggregating data
 Data in a data frame can be filtered. Two methods are shown below.
 
     df[df['col'] == cond]
@@ -1526,7 +1587,7 @@ Duplicates can be dropped as follows:
 
     df = df.drop_duplicates(subset=['Col1', 'Col2'])
 
-## Computation with numpy
+### Computation with numpy
 Numpy is the standard for numeric computing in python and shines at low level tasks and matrices.
 
     import numpy as np
@@ -1546,7 +1607,7 @@ Images are just collections of pixels with an RGB value per pixel. This means we
 
     from PIL import Image
 
-## Relationships in data
+### Relationships in data
 Simple regression plots with confidence intervals can be made using seaborn:
 
     sns.regplot(data=df, 
